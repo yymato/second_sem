@@ -1,0 +1,1699 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Математический анализ | Билеты 1–20 с подробными объяснениями</title>
+    <!-- Подключение MathJax для красивых формул -->
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script" async></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #f5f7fb;
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.5;
+            color: #1e293b;
+            padding: 2rem 1rem;
+        }
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+        /* Заголовок страницы */
+        .page-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        .page-header h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, #0f172a, #1e3c72);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.5px;
+        }
+        .page-header p {
+            color: #475569;
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+        }
+        /* Сетка билетов */
+        .tickets-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        /* Карточка билета */
+        .ticket-card {
+            background: #ffffff;
+            border-radius: 1.5rem;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid #e2e8f0;
+        }
+        .ticket-card:hover {
+            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+        }
+        .ticket-header {
+            background: #f8fafc;
+            padding: 1rem 2rem;
+            border-bottom: 2px solid #e0e7ff;
+        }
+        .ticket-number {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #2563eb;
+            display: inline-block;
+            background: #dbeafe;
+            padding: 0.2rem 0.8rem;
+            border-radius: 40px;
+            margin-bottom: 0.6rem;
+        }
+        .ticket-title {
+            font-size: 1.7rem;
+            font-weight: 700;
+            color: #0f172a;
+            letter-spacing: -0.3px;
+        }
+        .ticket-content {
+            padding: 1.8rem 2rem;
+        }
+        /* Стили для текста и формул */
+        .theory {
+            margin-bottom: 1.8rem;
+        }
+        .theory p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+        .example {
+            background: #f1f5f9;
+            border-left: 5px solid #3b82f6;
+            padding: 1rem 1.5rem;
+            margin: 1.2rem 0;
+            border-radius: 1rem;
+            font-size: 0.95rem;
+        }
+        .example strong {
+            color: #1e40af;
+        }
+        .comment {
+            background: #fef9e3;
+            border-left: 5px solid #eab308;
+            padding: 0.8rem 1.2rem;
+            margin: 1rem 0;
+            border-radius: 0.8rem;
+            font-style: normal;
+            color: #92400e;
+        }
+        .comment::before {
+            content: "💡 Комментарий: ";
+            font-weight: 700;
+            color: #b45309;
+        }
+        .formula {
+            text-align: center;
+            margin: 1rem 0;
+            font-size: 1.05rem;
+            overflow-x: auto;
+        }
+        hr {
+            margin: 1.5rem 0;
+            border: none;
+            height: 1px;
+            background: #cbd5e1;
+        }
+        .note {
+            background: #e6f7e6;
+            border-radius: 0.8rem;
+            padding: 0.6rem 1rem;
+            font-size: 0.9rem;
+            color: #166534;
+        }
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 1rem;
+            color: #64748b;
+            border-top: 1px solid #cbd5e1;
+        }
+        @media (max-width: 700px) {
+            .ticket-header, .ticket-content {
+                padding: 1rem;
+            }
+            .ticket-title {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="page-header">
+        <h1>📚 Математический анализ</h1>
+        <p>Билеты прошлых лет</p>
+    </div>
+
+    <div class="tickets-grid">
+        <!-- БИЛЕТ 1 -->
+        <div class="ticket-card">
+            <div class="ticket-header">
+                <span class="ticket-number">Билет №1</span>
+                <div class="ticket-title">Площадь криволинейной трапеции. Разбиение отрезка. Интегральная сумма.</div>
+            </div>
+            <div class="ticket-content">
+                <div class="theory">
+                    <p><strong>Криволинейная трапеция</strong> — это фигура, ограниченная графиком непрерывной неотрицательной функции \(y = f(x)\), осью \(Ox\) и вертикальными прямыми \(x = a\), \(x = b\). Площадь такой фигуры — отправная точка определённого интеграла.</p>
+                    <p><strong>Разбиение отрезка \([a,b]\)</strong> — это набор точек \(a = x_0 < x_1 < \dots < x_n = b\). Длина \(i\)-го частичного отрезка \(\Delta x_i = x_i - x_{i-1}\). Мелкость разбиения \(\lambda = \max\limits_{1\le i\le n}\Delta x_i\).</p>
+                    <p><strong>Интегральная сумма (Римана)</strong> для функции \(f\) на \([a,b]\):  
+                    \[
+                    S(f, \xi) = \sum_{i=1}^{n} f(\xi_i)\,\Delta x_i,
+                    \]
+                    где \(\xi_i\) — произвольная точка из \([x_{i-1}, x_i]\). Геометрически это сумма площадей прямоугольников с основаниями \(\Delta x_i\) и высотами \(f(\xi_i)\).</p>
+                    <p>Если при стремлении мелкости разбиения к нулю интегральные суммы стремятся к одному и тому же числу \(I\) независимо от выбора точек \(\xi_i\), то это число и есть площадь криволинейной трапеции.</p>
+                </div>
+                <div class="example">
+                    <strong>📐 Пример:</strong> \(f(x) = x^2\) на \([0,1]\). Рассмотрим равномерное разбиение: \(x_i = i/n\), \(\Delta x = 1/n\). Выберем \(\xi_i = x_i\) (правые концы). Тогда интегральная сумма:  
+                    \[
+                    S_n = \sum_{i=1}^{n} \left(\frac{i}{n}\right)^2 \cdot \frac{1}{n} = \frac{1}{n^3}\sum_{i=1}^{n} i^2 = \frac{1}{n^3}\cdot\frac{n(n+1)(2n+1)}{6} \to \frac{1}{3}.
+                    \]
+                    Площадь под параболой на \([0,1]\) равна \(1/3\). Комментарий: чем больше \(n\), тем точнее приближение.
+                </div>
+                <div class="comment">
+                    Важно: интегральная сумма зависит от выбора \(\xi_i\), но для интегрируемой функции предел един. Это фундаментальная идея построения интеграла Римана.
+                </div>
+            </div>
+        </div>
+
+        <!-- БИЛЕТ 2 -->
+        <div class="ticket-card">
+            <div class="ticket-header">
+                <span class="ticket-number">Билет №2</span>
+                <div class="ticket-title">Определение определенного интеграла. Линейность определенного интеграла.</div>
+            </div>
+            <div class="ticket-content">
+                <div class="theory">
+                    <p><strong>Определённый интеграл</strong> функции \(f\) на отрезке \([a,b]\) обозначается \(\int_{a}^{b} f(x)\,dx\) и определяется как предел интегральных сумм при условии, что этот предел существует и не зависит от способа разбиения и выбора точек \(\xi_i\):
+                    \[
+                    \int_{a}^{b} f(x)\,dx = \lim_{\lambda\to 0} \sum_{i=1}^{n} f(\xi_i)\Delta x_i.
+                    \]
+                    Функция, для которой этот предел существует, называется <strong>интегрируемой по Риману</strong> на \([a,b]\).</p>
+                    <p><strong>Свойство линейности:</strong> Если \(f\) и \(g\) интегрируемы на \([a,b]\), а \(\alpha, \beta \in \mathbb{R}\), то
+                    \[
+                    \int_{a}^{b} \bigl(\alpha f(x) + \beta g(x)\bigr)\,dx = \alpha\int_{a}^{b} f(x)\,dx + \beta\int_{a}^{b} g(x)\,dx.
+                    \]
+                    Доказательство основано на линейности интегральных сумм и свойствах пределов.</p>
+                </div>
+                <div class="example">
+                    <strong>🧮 Пример:</strong> \(\int_{0}^{1} (3x^2 + 2x)\,dx = 3\int_{0}^{1}x^2 dx + 2\int_{0}^{1}x dx = 3\cdot\frac{1}{3} + 2\cdot\frac{1}{2} = 1+1=2\). Непосредственным вычислением по Ньютону-Лейбницу получаем \( [x^3+x^2]_0^1 = 2\).
+                </div>
+                <div class="comment">
+                    Линейность — краеугольный камень: интеграл превращает линейную комбинацию функций в такую же комбинацию интегралов. Это позволяет разбивать сложные выражения на простые части.
+                </div>
+            </div>
+        </div>
+
+        <!-- БИЛЕТ 3 -->
+        <div class="ticket-card">
+            <div class="ticket-header">
+                <span class="ticket-number">Билет №3</span>
+                <div class="ticket-title">Аддитивность определенного интеграла. Интегрирование неравенств.</div>
+            </div>
+            <div class="ticket-content">
+                <div class="theory">
+                    <p><strong>Аддитивность по отрезку:</strong> Для любой точки \(c \in [a,b]\):
+                    \[
+                    \int_{a}^{b} f(x)\,dx = \int_{a}^{c} f(x)\,dx + \int_{c}^{b} f(x)\,dx.
+                    \]
+                    Это свойство очевидно геометрически: площадь под графиком на \([a,b]\) равна сумме площадей на частях. Доказывается разбиением, включающим точку \(c\).</p>
+                    <p><strong>Интегрирование неравенств:</strong> Если \(f(x) \le g(x)\) для всех \(x \in [a,b]\), то
+                    \[
+                    \int_{a}^{b} f(x)\,dx \le \int_{a}^{b} g(x)\,dx.
+                    \]
+                    Если дополнительно \(f\) и \(g\) непрерывны и \(f(x) < g(x)\) хотя бы в одной точке, то неравенство строгое.</p>
+                </div>
+                <div class="example">
+                    <strong>📊 Пример аддитивности:</strong> \(\int_{0}^{2} x\,dx = \int_{0}^{1}x dx + \int_{1}^{2}x dx = 0.5 + 1.5 = 2\). <br>
+                    <strong>Пример неравенств:</strong> На \([0,1]\) \(\sin x \le x\), следовательно \(\int_{0}^{1}\sin x\,dx \le \int_{0}^{1}x\,dx = 0.5\).
+                </div>
+                <div class="comment">
+                    Аддитивность позволяет вычислять интегралы на сложных областях, разбивая их на простые. Интегрирование неравенств часто используют для оценок интегралов и доказательства сходимости.
+                </div>
+            </div>
+        </div>
+
+        <!-- БИЛЕТ 4 -->
+        <div class="ticket-card">
+            <div class="ticket-header">
+                <span class="ticket-number">Билет №4</span>
+                <div class="ticket-title">Ограниченность интегрируемой функции. Примеры неинтегрируемых функций.</div>
+            </div>
+            <div class="ticket-content">
+                <div class="theory">
+                    <p><strong>Теорема:</strong> Если функция \(f\) интегрируема по Риману на отрезке \([a,b]\), то она ограничена на этом отрезке. Обратное, вообще говоря, неверно.</p>
+                    <p><strong>Примеры неинтегрируемых функций:</strong></p>
+                    <ul>
+                        <li><strong>Функция Дирихле:</strong> \(\chi_{\mathbb{Q}}(x) = 1\), если \(x\) рационально, и \(0\), если иррационально. На любом отрезке интегральные суммы могут давать как 0 (выбирая иррациональные \(\xi_i\)), так и 1 (выбирая рациональные), предел не единствен.</li>
+                        <li><strong>Неограниченная функция:</strong> \(f(x)=1/x\) на \((0,1]\) не является интегрируемой по Риману, так как не ограничена вблизи 0 (хотя существует несобственный интеграл).</li>
+                    </ul>
+                </div>
+                <div class="example">
+                    <strong>⚠️ Пример:</strong> Для функции Дирихле на \([0,1]\) возьмём разбиение с рациональными точками \(\xi_i\) → сумма = 1; с иррациональными → сумма = 0. Предел не существует ⇒ неинтегрируема.
+                </div>
+                <div class="comment">
+                    Ограниченность — необходимое условие интегрируемости по Риману. Классический пример Дирихле показывает, что одних лишь ограниченности недостаточно — нужна «почти непрерывность» в смысле меры Лебега.
+                </div>
+            </div>
+        </div>
+
+        <!-- БИЛЕТ 5 -->
+        <div class="ticket-card">
+            <div class="ticket-header">
+                <span class="ticket-number">Билет №5</span>
+                <div class="ticket-title">Классы интегрируемых функций: непрерывные, монотонные, кусочно-непрерывные. Теорема о среднем.</div>
+            </div>
+            <div class="ticket-content">
+                <div class="theory">
+                    <p><strong>Интегрируемые классы:</strong></p>
+                    <ul>
+                        <li>Любая <strong>непрерывная</strong> на \([a,b]\) функция интегрируема.</li>
+                        <li><strong>Монотонная</strong> на отрезке функция (даже с разрывами) интегрируема.</li>
+                        <li><strong>Кусочно-непрерывная</strong> (имеет конечное число точек разрыва первого рода) также интегрируема.</li>
+                    </ul>
+                    <p><strong>Теорема о среднем (первая):</strong> Если \(m \le f(x) \le M\) на \([a,b]\), то существует число \(\mu \in [m, M]\) такое, что
+                    \[
+                    \int_{a}^{b} f(x)\,dx = \mu (b-a).
+                    \]
+                    Если \(f\) непрерывна, то \(\mu = f(c)\) для некоторой точки \(c \in [a,b]\).</p>
+                </div>
+                <div class="example">
+                    <strong>📌 Пример:</strong> Для \(f(x)=\sqrt{x}\) на \([1,4]\): \(\int_{1}^{4}\sqrt{x}dx = \frac{2}{3}(8-1)=\frac{14}{3}\approx 4.667\). Длина отрезка = 3, значит среднее значение \(\mu = 14/9 \approx 1.555\). Существует \(c\): \(\sqrt{c}=1.555 \Rightarrow c\approx 2.418\), что лежит между 1 и 4.
+                </div>
+                <div class="comment">
+                    Теорема о среднем имеет огромное значение для оценок интегралов и вывода формул (например, остаточный член в формуле Тейлора в интегральной форме).
+                </div>
+            </div>
+        </div>
+
+        <!-- БИЛЕТ 6 -->
+        <div class="ticket-card">
+            <div class="ticket-header">
+                <span class="ticket-number">Билет №6</span>
+                <div class="ticket-title">Интеграл как функция верхнего предела. Формула Ньютона-Лейбница.</div>
+            </div>
+            <div class="ticket-content">
+                <div class="theory">
+                    <p>Определим \(F(x) = \int_{a}^{x} f(t)\,dt\) для \(x\in[a,b]\). <strong>Свойства:</strong></p>
+                    <ul>
+                        <li>Если \(f\) интегрируема, то \(F\) непрерывна на \([a,b]\).</li>
+                        <li>Если \(f\) непрерывна в точке \(x_0\), то \(F\) дифференцируема в \(x_0\) и \(F'(x_0)=f(x_0)\).</li>
+                    </ul>
+                    <p><strong>Формула Ньютона-Лейбница (основная теорема анализа):</strong> Пусть \(f\) интегрируема на \([a,b]\) и существует первообразная \(F\) (т.е. \(F'(x)=f(x)\) для всех \(x\in[a,b]\)). Тогда
+                    \[
+                    \int_{a}^{b} f(x)\,dx = F(b) - F(a).
+                    \]</p>
+                </div>
+                <div class="example">
+                    <strong>✨ Пример:</strong> Вычислим \(\int_{0}^{\pi/2} \cos x\,dx\). Первообразная \(F(x)=\sin x\). Тогда \(\sin(\pi/2)-\sin(0)=1-0=1\).
+                </div>
+                <div class="comment">
+                    Связь дифференцирования и интегрирования — величайшее открытие. Формула Ньютона-Лейбница превращает вычисление интегралов в нахождение первообразных.
+                </div>
+            </div>
+        </div>
+
+        <!-- БИЛЕТ 7 -->
+        <div class="ticket-card">
+            <div class="ticket-header">
+                <span class="ticket-number">Билет №7</span>
+                <div class="ticket-title">Замена переменной в определенном интеграле. Интегрирование по частям.</div>
+            </div>
+            <div class="ticket-content">
+                <div class="theory">
+                    <p><strong>Замена переменной:</strong> Пусть \(x = \varphi(t)\) непрерывно дифференцируема на \([\alpha,\beta]\), \(\varphi(\alpha)=a\), \(\varphi(\beta)=b\), и \(f\) непрерывна на \([a,b]\). Тогда
+                    \[
+                    \int_{a}^{b} f(x)\,dx = \int_{\alpha}^{\beta} f(\varphi(t))\,\varphi'(t)\,dt.
+                    \]</p>
+                    <p><strong>Интегрирование по частям:</strong> Если \(u(x), v(x)\) непрерывно дифференцируемы на \([a,b]\), то
+                    \[
+                    \int_{a}^{b} u(x)v'(x)\,dx = \bigl[u(x)v(x)\bigr]_{a}^{b} - \int_{a}^{b} u'(x)v(x)\,dx.
+                    \]</p>
+                </div>
+                <div class="example">
+                    <strong>🔄 Пример замены:</strong> \(\int_{0}^{2} x e^{x^2} dx\). Замена \(t=x^2\), \(dt=2x dx\), \(x dx = dt/2\). Пределы: \(0\to0, 2\to4\). Интеграл = \(\frac12\int_{0}^{4} e^t dt = \frac12(e^4-1)\).<br>
+                    <strong>📘 Пример по частям:</strong> \(\int_{0}^{\pi} x\sin x\,dx = [-x\cos x]_{0}^{\pi} + \int_{0}^{\pi}\cos x dx = [-\pi(-1)-0] + [\sin x]_{0}^{\pi} = \pi + 0 = \pi\).
+                </div>
+                <div class="comment">
+                    Замена переменной часто упрощает интеграл, а интегрирование по частям позволяет понижать степень или избавляться от логарифмов/обратных функций.
+                </div>
+            </div>
+        </div>
+
+        <!-- БИЛЕТ 8 -->
+        <div class="ticket-card">
+            <div class="ticket-header">
+                <span class="ticket-number">Билет №8</span>
+                <div class="ticket-title">Вычисление площади плоской фигуры в декартовых, полярных, параметрических координатах. Длина параметрической кривой.</div>
+            </div>
+            <div class="ticket-content">
+                <div class="theory">
+                    <p><strong>Площадь в декартовых координатах:</strong> \(S = \int_{a}^{b} |y(x)|\,dx\) (между графиком и осью Ox) или для области между двумя кривыми \(y=f(x)\ge g(x)\): \(S = \int_{a}^{b} (f(x)-g(x)) dx\).</p>
+                    <p><strong>Полярные координаты:</strong> \(S = \frac12\int_{\alpha}^{\beta} r(\varphi)^2 d\varphi\).</p>
+                    <p><strong>Параметрически заданная кривая:</strong> \(x=x(t), y=y(t), t\in[t_1,t_2]\), площадь под кривой (если \(y\ge0\)): \(S = \int_{t_1}^{t_2} y(t) x'(t) dt\) (с учётом знака).</p>
+                    <p><strong>Длина параметрической кривой:</strong> \(L = \int_{t_1}^{t_2} \sqrt{(x'(t))^2 + (y'(t))^2}\,dt\).</p>
+                </div>
+                <div class="example">
+                    <strong>🌐 Пример (параметрическая длина):</strong> Циклоида \(x = R(t-\sin t), y=R(1-\cos t), t\in[0,2\pi]\). \(x'=R(1-\cos t), y'=R\sin t\). Подынтегральное выражение: \(\sqrt{R^2(1-2\cos t+\cos^2 t + \sin^2 t)} = R\sqrt{2-2\cos t}=2R|\sin(t/2)|\). Длина \(L = \int_{0}^{2\pi}2R\sin(t/2)dt = 8R\).
+                </div>
+                <div class="comment">
+                    Параметрическое задание удобно для сложных кривых (циклоида, эллипс). Длина кривой — важнейшее приложение интеграла.
+                </div>
+            </div>
+        </div>
+
+        <!-- БИЛЕТ 9 -->
+        <div class="ticket-card">
+            <div class="ticket-header">
+                <span class="ticket-number">Билет №9</span>
+                <div class="ticket-title">Длина кривой в декартовых или полярных координатах. Объём тела вращения.</div>
+            </div>
+            <div class="ticket-content">
+                <div class="theory">
+                    <p><strong>Длина в декартовых:</strong> \(L = \int_{a}^{b} \sqrt{1+(y'(x))^2}\,dx\).</p>
+                    <p><strong>Длина в полярных:</strong> \(L = \int_{\alpha}^{\beta} \sqrt{r^2 + (r')^2}\,d\varphi\).</p>
+                    <p><strong>Объём тела вращения (вокруг оси Ox):</strong> для кривой \(y=f(x)\ge0\), \(x\in[a,b]\): \(V = \pi \int_{a}^{b} [f(x)]^2 dx\).</p>
+                    <p>Для вращения вокруг Oy: \(V = 2\pi \int_{a}^{b} x f(x) dx\) (метод цилиндрических оболочек).</p>
+                </div>
+                <div class="example">
+                    <strong>🥨 Пример объёма:</strong> Шар радиусом \(R\) получается вращением полуокружности \(y=\sqrt{R^2-x^2}\) вокруг Ox: \(V = \pi\int_{-R}^{R} (R^2-x^2)dx = \pi\left[ R^2x - \frac{x^3}{3}\right]_{-R}^{R} = \frac{4}{3}\pi R^3\).
+                </div>
+                <div class="comment">
+                    Формулы длины и объёма — прямое применение определённого интеграла. Они связывают геометрические характеристики с аналитическим описанием кривой.
+                </div>
+            </div>
+        </div>
+
+        <!-- БИЛЕТ 10 -->
+        <div class="ticket-card">
+            <div class="ticket-header">
+                <span class="ticket-number">Билет №10</span>
+                <div class="ticket-title">Площадь поверхности вращения. Несобственные интегралы с бесконечными пределами.</div>
+            </div>
+            <div class="ticket-content">
+                <div class="theory">
+                    <p><strong>Площадь поверхности вращения</strong> (вокруг Ox): для кривой \(y=f(x)\), \(x\in[a,b]\):
+                    \[
+                    S = 2\pi\int_{a}^{b} f(x)\sqrt{1+(f'(x))^2}\,dx.
+                    \]</p>
+                    <p><strong>Несобственный интеграл I рода</strong> (бесконечный предел):
+                    \[
+                    \int_{a}^{\infty} f(x)\,dx = \lim_{b\to\infty} \int_{a}^{b} f(x)\,dx,
+                    \]
+                    если предел существует и конечен, интеграл сходится.</p>
+                </div>
+                <div class="example">
+                    <strong>🧴 Пример поверхности:</strong> Сфера радиуса \(R\): вращение \(y=\sqrt{R^2-x^2}\) даёт \(S = 2\pi\int_{-R}^{R} \sqrt{R^2-x^2}\cdot\frac{R}{\sqrt{R^2-x^2}}dx = 2\pi\int_{-R}^{R} R\,dx = 4\pi R^2\).<br>
+                    <strong>📈 Пример несобственного:</strong> \(\int_{1}^{\infty} \frac{dx}{x^2} = \lim_{b\to\infty}(-1/x)|_{1}^{b}=1\). Сходится.
+                </div>
+                <div class="comment">
+                    Площадь поверхности вращения — более сложное понятие, чем объём, требует учёта наклона кривой. Несобственные интегралы расширяют понятие интеграла на бесконечные промежутки.
+                </div>
+            </div>
+        </div>
+
+        <!-- БИЛЕТ 11 -->
+        <div class="ticket-card">
+            <div class="ticket-header">
+                <span class="ticket-number">Билет №11</span>
+                <div class="ticket-title">Несобственные интегралы от неограниченных функций. Признак сравнения.</div>
+            </div>
+            <div class="ticket-content">
+                <div class="theory">
+                    <p><strong>Несобственный интеграл II рода</strong> (особенность внутри или на границе): пусть \(f\) не ограничена в окрестности точки \(b\), тогда
+                    \[
+                    \int_{a}^{b} f(x)\,dx = \lim_{\varepsilon\to0^+} \int_{a}^{b-\varepsilon} f(x)\,dx.
+                    \]
+                    Аналогично для особенности в \(a\).</p>
+                    <p><strong>Признак сравнения (для неотрицательных функций):</strong> Если \(0\le f(x)\le g(x)\) на \([a,b)\) и \(\int_{a}^{b} g(x)dx\) сходится, то \(\int_{a}^{b} f(x)dx\) сходится. Если \(f(x)\ge g(x)\ge0\) и \(\int g\) расходится, то \(\int f\) расходится.</p>
+                </div>
+                <div class="example">
+                    <strong>⚠️ Пример:</strong> \(\int_{0}^{1} \frac{dx}{\sqrt{x}}\) — особенность в 0. Первообразная \(2\sqrt{x}\), интеграл = \(2\). Сходится.<br>
+                    Сравним: \(\frac{1}{\sqrt{x}} \le \frac{1}{x^{0.9}}\) при малых \(x\), но интеграл от \(x^{-0.9}\) на (0,1] сходится, значит наш тоже сходится.
+                </div>
+                <div class="comment">
+                    Признак сравнения — мощный инструмент для исследования сходимости, не требуя вычисления первообразной. Ключевая идея: сравнивать с эталонными интегралами.
+                </div>
+            </div>
+        </div>
+
+        <!-- БИЛЕТ 12 -->
+        <div class="ticket-card">
+            <div class="ticket-header">
+                <span class="ticket-number">Билет №12</span>
+                <div class="ticket-title">Предельный признак сравнения. Интегралы от степенных функций.</div>
+            </div>
+            <div class="ticket-content">
+                <div class="theory">
+                    <p><strong>Предельный признак сравнения:</strong> Пусть \(f(x)\ge0, g(x)>0\) на \([a,\infty)\) и \(\lim_{x\to\infty} \frac{f(x)}{g(x)} = L\), где \(0<L<\infty\). Тогда интегралы \(\int_a^\infty f\) и \(\int_a^\infty g\) сходятся или расходятся одновременно.</p>
+                    <p><strong>Эталонные интегралы (степенные):</strong>
+                    \[
+                    \int_{1}^{\infty} \frac{dx}{x^p} \quad \text{сходится при } p>1,\ \text{расходится при } p\le1.
+                    \]
+                    Для особенности в 0: \(\int_{0}^{1} \frac{dx}{x^p}\) сходится при \(p<1\), расходится при \(p\ge1\).</p>
+                </div>
+                <div class="example">
+                    <strong>📊 Пример:</strong> \(\int_{1}^{\infty} \frac{x+1}{x^3+2} dx\). При \(x\to\infty\) подынтегральная функция ведёт себя как \(1/x^2\), предел отношения к \(1/x^2\) равен 1, интеграл сходится.
+                </div>
+                <div class="comment">
+                    Предельный признак удобен, когда трудно подобрать точное неравенство, но асимптотика ясна. Степенные интегралы — «кирпичики» для сравнения.
+                </div>
+            </div>
+        </div>
+
+        <!-- БИЛЕТ 13 -->
+        <div class="ticket-card">
+            <div class="ticket-header">
+                <span class="ticket-number">Билет №13</span>
+                <div class="ticket-title">Абсолютная и условная сходимость несобственных интегралов. Признак Дирихле.</div>
+            </div>
+            <div class="ticket-content">
+                <div class="theory">
+                    <p>Несобственный интеграл \(\int_a^\infty f(x)dx\) сходится <strong>абсолютно</strong>, если сходится \(\int_a^\infty |f(x)|dx\). Абсолютная сходимость влечёт обычную сходимость.</p>
+                    <p><strong>Условная сходимость</strong> — интеграл сходится, но не абсолютно (например, \(\int_{1}^{\infty} \frac{\sin x}{x}dx\)).</p>
+                    <p><strong>Признак Дирихле:</strong> Пусть \(F(A)=\int_a^A f(x)dx\) ограничена, а \(g(x)\) монотонно стремится к 0 при \(x\to\infty\). Тогда \(\int_a^\infty f(x)g(x)dx\) сходится.</p>
+                </div>
+                <div class="example">
+                    <strong>🎯 Пример:</strong> \(\int_{1}^{\infty} \frac{\sin x}{x}dx\). \(f(x)=\sin x\) имеет ограниченную первообразную, \(g(x)=1/x\) монотонно убывает к 0, поэтому интеграл сходится условно. Абсолютно расходится, так как \(\int |\sin x|/x dx\) ведёт себя как гармонический ряд.
+                </div>
+                <div class="comment">
+                    Признак Дирихле — тонкий инструмент для знакопеременных интегралов. Он позволяет установить сходимость там, где абсолютная сходимость отсутствует.
+                </div>
+            </div>
+        </div>
+
+        <!-- БИЛЕТ 14 -->
+        <div class="ticket-card">
+            <div class="ticket-header">
+                <span class="ticket-number">Билет №14</span>
+                <div class="ticket-title">Понятие числового ряда. Частичные суммы. Примеры сходящихся и расходящихся рядов. Геометрическая прогрессия.</div>
+            </div>
+            <div class="ticket-content">
+                <div class="theory">
+                    <p>Числовой ряд \(\sum_{n=1}^{\infty} a_n\) — формальная сумма бесконечного числа слагаемых. <strong>Частичная сумма</strong> \(S_N = a_1 + a_2 + \dots + a_N\). Ряд сходится, если существует конечный предел \(S = \lim_{N\to\infty} S_N\) (сумма ряда). Иначе ряд расходится.</p>
+                    <p><strong>Геометрический ряд</strong> \(\sum_{n=0}^{\infty} q^n\) сходится при \(|q|<1\) и его сумма \(S = \frac{1}{1-q}\). При \(|q|\ge1\) расходится.</p>
+                    <p><strong>Гармонический ряд</strong> \(\sum 1/n\) расходится, несмотря на стремление слагаемых к нулю.</p>
+                </div>
+                <div class="example">
+                    <strong>📐 Пример:</strong> \(\sum_{n=1}^{\infty} \frac{1}{2^{n}} = 1\) (геометрическая прогрессия, \(q=1/2\)). Расходящийся пример: \(\sum_{n=1}^{\infty} 1\).
+                </div>
+                <div class="comment">
+                    Изучение рядов — основа анализа. Геометрический ряд — простейший и важнейший эталон сходимости. Гармонический ряд демонстрирует, что необходимого условия \(a_n\to0\) недостаточно.
+                </div>
+            </div>
+        </div>
+
+        <!-- БИЛЕТ 15 -->
+        <div class="ticket-card">
+            <div class="ticket-header">
+                <span class="ticket-number">Билет №15</span>
+                <div class="ticket-title">Необходимое условие сходимости. Признак сравнения.</div>
+            </div>
+            <div class="ticket-content">
+                <div class="theory">
+                    <p><strong>Необходимое условие сходимости:</strong> Если ряд \(\sum a_n\) сходится, то \(\lim_{n\to\infty} a_n = 0\). Обратное неверно (пример: гармонический ряд).</p>
+                    <p><strong>Признак сравнения (для рядов с неотрицательными членами):</strong> Если \(0\le a_n \le b_n\) для всех \(n\), то:</p>
+                    <ul>
+                        <li>Из сходимости \(\sum b_n\) следует сходимость \(\sum a_n\).</li>
+                        <li>Из расходимости \(\sum a_n\) следует расходимость \(\sum b_n\).</li>
+                    </ul>
+                </div>
+                <div class="example">
+                    <strong>🔍 Пример:</strong> Ряд \(\sum \frac{1}{n^2+n}\) сравним с \(\sum 1/n^2\): \(\frac{1}{n^2+n} \le \frac{1}{n^2}\), а \(\sum 1/n^2\) сходится (p-ряд p=2). Значит, исходный ряд сходится.
+                </div>
+                <div class="comment">
+                    Признак сравнения — первый серьёзный инструмент исследования сходимости. Важно помнить, что он работает только для знакоположительных рядов.
+                </div>
+            </div>
+        </div>
+
+        <!-- БИЛЕТ 16 -->
+        <div class="ticket-card">
+            <div class="ticket-header">
+                <span class="ticket-number">Билет №16</span>
+                <div class="ticket-title">Предельный признак сравнения. Признак Даламбера.</div>
+            </div>
+            <div class="ticket-content">
+                <div class="theory">
+                    <p><strong>Предельный признак сравнения:</strong> Если \(a_n\ge0, b_n>0\) и \(\lim_{n\to\infty} a_n/b_n = L\), \(0<L<\infty\), то ряды \(\sum a_n\) и \(\sum b_n\) сходятся или расходятся одновременно.</p>
+                    <p><strong>Признак Даламбера:</strong> Пусть \(\lim_{n\to\infty} \left|\frac{a_{n+1}}{a_n}\right| = D\). Тогда:</p>
+                    <ul>
+                        <li>Если \(D < 1\) — ряд сходится абсолютно.</li>
+                        <li>Если \(D > 1\) — ряд расходится.</li>
+                        <li>Если \(D = 1\) — признак не даёт ответа.</li>
+                    </ul>
+                </div>
+                <div class="example">
+                    <strong>📈 Пример:</strong> \(\sum \frac{n^2}{2^n}\). \(a_{n+1}/a_n = \frac{(n+1)^2}{2^{n+1}} \cdot \frac{2^n}{n^2} = \frac12 (1+1/n)^2 \to 1/2 <1\), ряд сходится.
+                </div>
+                <div class="comment">
+                    Признак Даламбера удобен, когда в члене ряда есть факториалы, показательные функции. Предельный признак часто проще, чем обычное сравнение.
+                </div>
+            </div>
+        </div>
+
+        <!-- БИЛЕТ 17 -->
+        <div class="ticket-card">
+            <div class="ticket-header">
+                <span class="ticket-number">Билет №17</span>
+                <div class="ticket-title">Радикальный признак Коши. Интегральный признак Коши. Ряды Дирихле.</div>
+            </div>
+            <div class="ticket-content">
+                <div class="theory">
+                    <p><strong>Радикальный признак Коши:</strong> Пусть \(\limsup_{n\to\infty} \sqrt[n]{|a_n|} = C\). Если \(C<1\) — ряд сходится абсолютно; если \(C>1\) — расходится; \(C=1\) — неопределённость.</p>
+                    <p><strong>Интегральный признак Коши:</strong> Для невозрастающей положительной функции \(f(x)\) на \([1,\infty)\) ряд \(\sum f(n)\) и интеграл \(\int_1^\infty f(x)dx\) сходятся или расходятся одновременно.</p>
+                    <p><strong>Ряды Дирихле:</strong> \(\sum_{n=1}^{\infty} \frac{1}{n^p}\) сходятся при \(p>1\) и расходятся при \(p\le1\).</p>
+                </div>
+                <div class="example">
+                    <strong>🧪 Пример:</strong> \(\sum \frac{1}{n\ln n}\). Интеграл \(\int_2^\infty \frac{dx}{x\ln x} = \infty\), ряд расходится. \(\sum \frac{1}{n(\ln n)^2}\) сходится.
+                </div>
+                <div class="comment">
+                    Радикальный признак Коши особенно эффективен, когда есть степень \(n\) в члене ряда. Интегральный признак связывает дискретный и непрерывный анализ.
+                </div>
+            </div>
+        </div>
+
+        <!-- БИЛЕТ 18 -->
+        <div class="ticket-card">
+            <div class="ticket-header">
+                <span class="ticket-number">Билет №18</span>
+                <div class="ticket-title">Знакопеременные ряды. Абсолютная и условная сходимость. Знакочередующиеся ряды. Признак Лейбница.</div>
+            </div>
+            <div class="ticket-content">
+                <div class="theory">
+                    <p>Ряд \(\sum a_n\) называется <strong>знакопеременным</strong>, если среди его членов есть как положительные, так и отрицательные. Ряд сходится <strong>абсолютно</strong>, если сходится \(\sum |a_n|\). Если ряд сходится, но не абсолютно — <strong>условно</strong>.</p>
+                    <p><strong>Знакочередующийся ряд:</strong> \(\sum (-1)^{n-1} b_n,\ b_n\ge0\).</p>
+                    <p><strong>Признак Лейбница:</strong> Если \(\{b_n\}\) монотонно убывает и \(b_n\to 0\), то знакочередующийся ряд сходится.</p>
+                </div>
+                <div class="example">
+                    <strong>🔁 Пример:</strong> \(\sum_{n=1}^{\infty} \frac{(-1)^{n-1}}{n}\) (гармонический знакочередующийся). \(b_n=1/n\) убывает к нулю ⇒ ряд сходится (условно, т.к. ряд из модулей расходится).
+                </div>
+                <div class="comment">
+                    Признак Лейбница — уникальный критерий для знакочередующихся рядов. Условная сходимость демонстрирует, что перестановка членов может изменить сумму (теорема Римана).
+                </div>
+            </div>
+        </div>
+
+        <!-- БИЛЕТ 19 -->
+        <div class="ticket-card">
+            <div class="ticket-header">
+                <span class="ticket-number">Билет №19</span>
+                <div class="ticket-title">Оценка остатка знакочередующегося ряда. Функциональные ряды. Поточечная сходимость.</div>
+            </div>
+            <div class="ticket-content">
+                <div class="theory">
+                    <p><strong>Оценка остатка знакочередующегося ряда</strong> (Лейбниц): Если ряд \(\sum (-1)^{n-1}b_n\) удовлетворяет условиям Лейбница, то \(|R_n| = |S - S_n| \le b_{n+1}\).</p>
+                    <p><strong>Функциональный ряд</strong> — \(\sum_{n=1}^{\infty} f_n(x)\), где члены — функции от \(x\). <strong>Поточечная сходимость</strong> на множестве \(E\): для каждого фиксированного \(x_0\in E\) числовой ряд \(\sum f_n(x_0)\) сходится.</p>
+                </div>
+                <div class="example">
+                    <strong>📉 Пример остатка:</strong> Для \(\sum (-1)^{n-1}/n\) при \(S_{10}\) ошибка меньше \(1/11\approx0.09\).<br>
+                    <strong>Функциональный ряд:</strong> \(\sum x^n\) сходится поточечно при \(|x|<1\) к \(\frac{1}{1-x}\).
+                </div>
+                <div class="comment">
+                    Оценка остатка позволяет вычислять сумму с заданной точностью. Поточечная сходимость — естественное, но слабое понятие; равномерная сходимость (билет 20) важнее.
+                </div>
+            </div>
+        </div>
+
+        <!-- БИЛЕТ 20 -->
+        <div class="ticket-card">
+            <div class="ticket-header">
+                <span class="ticket-number">Билет №20</span>
+                <div class="ticket-title">Область сходимости функционального ряда. Равномерная сходимость функциональной последовательности.</div>
+            </div>
+            <div class="ticket-content">
+                <div class="theory">
+                    <p><strong>Область сходимости</strong> функционального ряда — множество всех \(x\), при которых ряд сходится.</p>
+                    <p><strong>Равномерная сходимость последовательности \(\{f_n(x)\}\)</strong> к \(f(x)\) на множестве \(E\):
+                    \[
+                    \lim_{n\to\infty} \sup_{x\in E} |f_n(x)-f(x)| = 0.
+                    \]
+                    Геометрически: все функции \(f_n\) попадают в «ε-трубку» вокруг \(f\) начиная с некоторого номера.</p>
+                    <p><strong>Критерий Коши равномерной сходимости:</strong> \(\forall\varepsilon>0\ \exists N\ \forall m,n>N\ \forall x\in E: |f_n(x)-f_m(x)|<\varepsilon\).</p>
+                </div>
+                <div class="example">
+                    <strong>🎯 Пример:</strong> \(f_n(x)=x^n\) на \([0,1]\) сходится поточечно к \(0\) при \(x<1\) и к 1 при \(x=1\), но не равномерно, т.к. вблизи 1 sup-разность не стремится к нулю. На \([0,1/2]\) сходимость равномерна.
+                </div>
+                <div class="comment">
+                    Равномерная сходимость сохраняет непрерывность, позволяет менять порядок пределов и интегрировать/дифференцировать почленно. Это центральное понятие анализа.
+                </div>
+            </div>
+            <!-- БИЛЕТЫ 20–40 для вставки в .tickets-grid -->
+<!-- Билет 20 -->
+<div class="ticket-card">
+    <div class="ticket-header">
+        <span class="ticket-number">Билет №20</span>
+        <div class="ticket-title">Область сходимости функционального ряда. Равномерная сходимость функциональной последовательности.</div>
+    </div>
+    <div class="ticket-content">
+        <div class="theory">
+            <p><strong>Функциональный ряд</strong> \(\sum_{n=1}^{\infty} u_n(x)\) — это ряд, члены которого являются функциями от \(x\). Множество всех \(x\), при которых числовой ряд сходится, называется <strong>областью сходимости</strong> ряда. Для каждого \(x\) из области сходимости определена сумма ряда \(S(x)\).</p>
+            <p><strong>Равномерная сходимость последовательности функций</strong> \(\{f_n(x)\}\) на множестве \(E\) к функции \(f(x)\) означает:
+            \[
+            \forall \varepsilon>0 \ \exists N: \ \forall n \ge N, \ \forall x\in E \quad |f_n(x)-f(x)|<\varepsilon.
+            \]
+            Число \(N\) не зависит от \(x\) (в отличие от поточечной сходимости). Равномерная сходимость позволяет переносить свойства непрерывности, интегрируемости и дифференцируемости с членов последовательности на предельную функцию.</p>
+            <p>Геометрически: графики \(f_n\) при достаточно больших \(n\) попадают в \(\varepsilon\)-полоску вокруг графика \(f\) на всём множестве \(E\).</p>
+        </div>
+        <div class="example">
+            <strong>📌 Пример:</strong> \(f_n(x)=x^n\) на \(E=[0,1]\). Поточечно сходится к \(f(x)=0\) при \(x\in[0,1)\) и \(f(1)=1\). Равномерной сходимости нет, так как при любом \(n\) найдётся \(x\) близкое к 1, где \(|x^n-0|\) близко к 1. Для равномерной сходимости необходимо, чтобы \(\sup_{x\in E}|f_n(x)-f(x)|\to 0\).
+        </div>
+        <div class="comment">
+            Равномерная сходимость — сильное условие. Критерий Коши равномерной сходимости: \(\sup_{x\in E}|f_n(x)-f_m(x)|\to 0\) при \(n,m\to\infty\). Применяется при интегрировании и дифференцировании рядов.
+        </div>
+    </div>
+</div>
+
+<!-- Билет 21 -->
+<div class="ticket-card">
+    <div class="ticket-header">
+        <span class="ticket-number">Билет №21</span>
+        <div class="ticket-title">Равномерная сходимость функционального ряда. Признак Вейерштрасса.</div>
+    </div>
+    <div class="ticket-content">
+        <div class="theory">
+            <p>Функциональный ряд \(\sum_{n=1}^{\infty} u_n(x)\) сходится <strong>равномерно</strong> на множестве \(E\), если последовательность его частичных сумм \(S_n(x)=\sum_{k=1}^{n} u_k(x)\) сходится равномерно на \(E\) к сумме ряда \(S(x)\).</p>
+            <p><strong>Признак Вейерштрасса (мажорантный признак):</strong> Если для всех \(x\in E\) и всех \(n\) выполняется \(|u_n(x)|\le a_n\), где числовой ряд \(\sum a_n\) сходится, то ряд \(\sum u_n(x)\) сходится абсолютно и равномерно на \(E\).</p>
+            <p>Доказательство: из неравенства \(|u_n(x)|\le a_n\) следует, что остаток ряда оценивается остатком сходящегося числового ряда, что и даёт равномерную сходимость.</p>
+        </div>
+        <div class="example">
+            <strong>🎯 Пример:</strong> Ряд \(\sum_{n=1}^{\infty} \frac{\sin(nx)}{n^2}\) на \(\mathbb{R}\). Так как \(\left|\frac{\sin(nx)}{n^2}\right|\le \frac{1}{n^2}\), а \(\sum 1/n^2\) сходится, то по признаку Вейерштрасса ряд сходится абсолютно и равномерно на всей вещественной оси. Сумма ряда — непрерывная функция.
+        </div>
+        <div class="comment">
+            Признак Вейерштрасса — простейший способ доказать равномерную сходимость. Он не требует исследования остатка, достаточно подобрать сходящуюся числовую мажоранту.
+        </div>
+    </div>
+</div>
+
+<!-- Билет 22 -->
+<div class="ticket-card">
+    <div class="ticket-header">
+        <span class="ticket-number">Билет №22</span>
+        <div class="ticket-title">Почленное интегрирование и дифференцирование функциональных рядов. Степенные ряды. Теорема Абеля.</div>
+    </div>
+    <div class="ticket-content">
+        <div class="theory">
+            <p><strong>Почленное интегрирование:</strong> Если ряд \(\sum u_n(x)\) сходится равномерно на \([a,b]\) и каждый член \(u_n(x)\) интегрируем, то сумма ряда интегрируема и
+            \[
+            \int_a^b \left(\sum_{n=1}^{\infty} u_n(x)\right)dx = \sum_{n=1}^{\infty} \int_a^b u_n(x)dx.
+            \]
+            <strong>Почленное дифференцирование:</strong> Если ряд \(\sum u_n(x)\) сходится в точке \(x_0\), производные \(u_n'(x)\) непрерывны и ряд из производных сходится равномерно, то сумма ряда дифференцируема и
+            \[
+            \frac{d}{dx}\sum_{n=1}^{\infty} u_n(x) = \sum_{n=1}^{\infty} u_n'(x).
+            \]
+            </p>
+            <p><strong>Степенной ряд:</strong> \(\sum_{n=0}^{\infty} a_n (x-x_0)^n\). <strong>Теорема Абеля:</strong> Если степенной ряд сходится в некоторой точке \(x_1 \ne x_0\), то он сходится абсолютно для всех \(x\), таких что \(|x-x_0| < |x_1-x_0|\). Если расходится в точке \(x_2\), то расходится при \(|x-x_0| > |x_2-x_0|\).</p>
+        </div>
+        <div class="example">
+            <strong>📖 Пример:</strong> Ряд \(\sum_{n=0}^{\infty} x^n\) сходится при \(|x|<1\) к \(\frac{1}{1-x}\). Почленно интегрируя на \([0,t]\) при \(|t|<1\):
+            \(\sum_{n=0}^{\infty} \frac{t^{n+1}}{n+1} = -\ln(1-t)\).
+        </div>
+        <div class="comment">
+            Теорема Абеля определяет интервал сходимости степенного ряда: от \(-R\) до \(R\) (с центром в \(x_0\)), где радиус \(R\) находится по формулам Коши–Адамара. На концах интервала сходимость требует отдельного исследования.
+        </div>
+    </div>
+</div>
+
+<!-- Билет 23 -->
+<div class="ticket-card">
+    <div class="ticket-header">
+        <span class="ticket-number">Билет №23</span>
+        <div class="ticket-title">Радиус, интервал и область сходимости степенного ряда. Почленное интегрирование и дифференцирование степенного ряда.</div>
+    </div>
+    <div class="ticket-content">
+        <div class="theory">
+            <p>Для степенного ряда \(\sum a_n (x-x_0)^n\) существует <strong>радиус сходимости</strong> \(R\) (\(0\le R\le\infty\)), определяемый формулой Коши-Адамара:
+            \[
+            \frac{1}{R} = \limsup_{n\to\infty} \sqrt[n]{|a_n|}.
+            \]
+            Ряд сходится абсолютно при \(|x-x_0|<R\) и расходится при \(|x-x_0|>R\). <strong>Интервал сходимости</strong> — \((x_0-R, x_0+R)\). <strong>Область сходимости</strong> — интервал плюс, возможно, одна или обе граничные точки, где сходимость исследуется отдельно.</p>
+            <p><strong>Почленное интегрирование и дифференцирование степенного ряда</strong> допустимы внутри интервала сходимости, причём радиус сходимости не меняется. Интегрируя или дифференцируя почленно, получаем новый степенной ряд с тем же радиусом.</p>
+        </div>
+        <div class="example">
+            <strong>⚡ Пример:</strong> \(\sum_{n=1}^{\infty} \frac{x^n}{n}\). Радиус \(R=1\) (так как \(\sqrt[n]{1/n}\to 1\)). При \(x=1\) ряд гармонический, расходится; при \(x=-1\) ряд \(\sum (-1)^n/n\) сходится условно (признак Лейбница). Область сходимости: \([-1,1)\). Почленное дифференцирование даёт \(\sum x^{n-1} = \frac{1}{1-x}\) при \(|x|<1\).
+        </div>
+        <div class="comment">
+            Радиус можно также найти по формуле Даламбера: \(R = \lim |a_n/a_{n+1}|\), если предел существует. Важно: на концах интервала ряд может вести себя по-разному, требуется отдельная проверка.
+        </div>
+    </div>
+</div>
+
+<!-- Билет 24 -->
+<div class="ticket-card">
+    <div class="ticket-header">
+        <span class="ticket-number">Билет №24</span>
+        <div class="ticket-title">Ряды Тейлора и Маклорена. Необходимое и достаточное условия разложения функции в ряд Тейлора.</div>
+    </div>
+    <div class="ticket-content">
+        <div class="theory">
+            <p><strong>Ряд Тейлора</strong> функции \(f(x)\) в окрестности точки \(x_0\):
+            \[
+            \sum_{n=0}^{\infty} \frac{f^{(n)}(x_0)}{n!} (x-x_0)^n.
+            \]
+            При \(x_0=0\) ряд называют <strong>рядом Маклорена</strong>.</p>
+            <p><strong>Необходимое и достаточное условие</strong> сходимости ряда Тейлора к самой функции: остаточный член формулы Тейлора стремится к нулю при \(n\to\infty\) для всех \(x\) из некоторой окрестности:
+            \[
+            R_n(x) = f(x) - \sum_{k=0}^{n} \frac{f^{(k)}(x_0)}{k!}(x-x_0)^k \xrightarrow[n\to\infty]{} 0.
+            \]
+            Различные формы остаточного члена (Лагранжа, Коши, Пеано) позволяют оценить скорость сходимости.</p>
+        </div>
+        <div class="example">
+            <strong>📈 Пример:</strong> \(f(x)=e^x\). Ряд Маклорена \(\sum_{n=0}^{\infty} \frac{x^n}{n!}\). Остаточный член в форме Лагранжа: \(R_n(x)=\frac{e^{\theta x}}{(n+1)!}x^{n+1}\to 0\) для любого \(x\). Следовательно, ряд сходится к \(e^x\) на всей прямой.
+        </div>
+        <div class="comment">
+            Даже если ряд Тейлора сходится, он может сходиться не к исходной функции (например, \(f(x)=e^{-1/x^2}\) при \(x\ne0\), \(f(0)=0\) имеет все производные нулевые, но ряд Тейлора тождественно ноль, не равный функции). Поэтому условие \(R_n\to0\) критически важно.
+        </div>
+    </div>
+</div>
+
+<!-- Билет 25 -->
+<div class="ticket-card">
+    <div class="ticket-header">
+        <span class="ticket-number">Билет №25</span>
+        <div class="ticket-title">Разложение элементарных функций в ряд Маклорена. Применение степенных рядов к вычислению приближённых значений функции.</div>
+    </div>
+    <div class="ticket-content">
+        <div class="theory">
+            <p>Основные разложения в ряд Маклорена (\(|x|<R\)):</p>
+            <ul>
+                <li>\(e^x = \sum_{n=0}^{\infty} \frac{x^n}{n!}\), \(R=\infty\).</li>
+                <li>\(\sin x = \sum_{n=0}^{\infty} (-1)^n \frac{x^{2n+1}}{(2n+1)!}\), \(R=\infty\).</li>
+                <li>\(\cos x = \sum_{n=0}^{\infty} (-1)^n \frac{x^{2n}}{(2n)!}\), \(R=\infty\).</li>
+                <li>\(\ln(1+x) = \sum_{n=1}^{\infty} (-1)^{n-1}\frac{x^n}{n}\), \(R=1\).</li>
+                <li>\((1+x)^{\alpha} = 1 + \alpha x + \frac{\alpha(\alpha-1)}{2!}x^2 + \dots\) (биномиальный ряд), \(R=1\).</li>
+            </ul>
+            <p>Для приближённых вычислений берут частичную сумму ряда и оценивают остаток по первому отброшенному члену (для знакочередующихся рядов) или по формуле остаточного члена.</p>
+        </div>
+        <div class="example">
+            <strong>🧮 Пример:</strong> Вычислить \(\sin(0.5)\) с точностью до \(10^{-4}\). Ряд \(\sin 0.5 = 0.5 - \frac{0.5^3}{6} + \frac{0.5^5}{120} - \dots\) Первый отброшенный член \(\frac{0.5^7}{5040} \approx 1.55\cdot10^{-5} < 10^{-4}\). Достаточно взять три слагаемых: \(0.5 - 0.0208333 + 0.0002604 = 0.4794271\).
+        </div>
+        <div class="comment">
+            Ряды Маклорена — мощный инструмент для вычисления значений трансцендентных функций, интегралов, решения дифференциальных уравнений. Оценка остатка гарантирует заданную точность.
+        </div>
+    </div>
+</div>
+
+<!-- Билет 26 -->
+<div class="ticket-card">
+    <div class="ticket-header">
+        <span class="ticket-number">Билет №26</span>
+        <div class="ticket-title">Применение степенных рядов к вычислению интегралов. Функции n переменных, n-мерное действительное пространство.</div>
+    </div>
+    <div class="ticket-content">
+        <div class="theory">
+            <p>Степенные ряды позволяют вычислять интегралы, которые не берутся в элементарных функциях. Если функция разложена в степенной ряд, сходящийся равномерно на отрезке, то интеграл от суммы равен сумме интегралов от членов ряда.</p>
+            <p><strong>\(n\)-мерное евклидово пространство</strong> \(\mathbb{R}^n\) состоит из упорядоченных наборов \(x=(x_1,\dots,x_n)\), где \(x_i\in\mathbb{R}\). Операции сложения и умножения на число вводятся покоординатно. Расстояние (евклидова норма): \(\|x\| = \sqrt{x_1^2+\dots+x_n^2}\).</p>
+            <p>Функция \(n\) переменных — отображение \(f: D\subset\mathbb{R}^n \to \mathbb{R}\). Примеры: температура в точке пространства, высота поверхности.</p>
+        </div>
+        <div class="example">
+            <strong>📐 Пример вычисления интеграла через ряд:</strong> \(\int_0^{0.5} e^{-x^2}dx\). Известно \(e^{-x^2}=\sum_{n=0}^{\infty} (-1)^n\frac{x^{2n}}{n!}\). Интегрируя почленно: \(\int_0^{0.5} e^{-x^2}dx = \sum_{n=0}^{\infty} \frac{(-1)^n}{n!}\cdot\frac{(0.5)^{2n+1}}{2n+1}\). Вычисляя несколько членов, получаем приближение \(\approx 0.461281\).
+        </div>
+        <div class="comment">
+            \(\mathbb{R}^n\) — фундаментальное понятие многомерного анализа. Функции многих переменных описывают сложные зависимости в физике, экономике, машинном обучении.
+        </div>
+    </div>
+</div>
+
+<!-- Билет 27 -->
+<div class="ticket-card">
+    <div class="ticket-header">
+        <span class="ticket-number">Билет №27</span>
+        <div class="ticket-title">Расстояние между точками, окрестности в R^n. График функции двух переменных.</div>
+    </div>
+    <div class="ticket-content">
+        <div class="theory">
+            <p><strong>Расстояние (метрика)</strong> в \(\mathbb{R}^n\): \(\rho(x,y)=\sqrt{(x_1-y_1)^2+\dots+(x_n-y_n)^2}\). Оно удовлетворяет аксиомам: неотрицательность, симметрия, неравенство треугольника.</p>
+            <p><strong>Окрестность</strong> точки \(a\in\mathbb{R}^n\) — это открытый шар радиуса \(\delta\): \(B(a,\delta)=\{x\in\mathbb{R}^n: \rho(x,a)<\delta\}\). Также рассматривают проколотые окрестности (без центра) и прямоугольные окрестности (открытые параллелепипеды).</p>
+            <p><strong>График функции двух переменных</strong> \(z=f(x,y)\) — это множество точек \((x,y,f(x,y))\) в \(\mathbb{R}^3\). Он представляет собой поверхность. Линии уровня (проекции на плоскость \(xy\)) помогают визуализировать рельеф.</p>
+        </div>
+        <div class="example">
+            <strong>🌐 Пример:</strong> Функция \(f(x,y)=x^2+y^2\). График — параболоид вращения. Расстояние между точками \((1,0,1)\) и \((0,1,1)\): \(\sqrt{(1-0)^2+(0-1)^2+(1-1)^2}=\sqrt{2}\). Окрестность радиуса 0.5 точки \((0,0)\) — круг на плоскости \(xy\).
+        </div>
+        <div class="comment">
+            Понятие окрестности позволяет определить предел и непрерывность функций многих переменных, перенося одномерные определения с модулем на многомерное расстояние.
+        </div>
+    </div>
+</div>
+
+<!-- Билет 28 -->
+<div class="ticket-card">
+    <div class="ticket-header">
+        <span class="ticket-number">Билет №28</span>
+        <div class="ticket-title">Линии и поверхности уровня. Предел и непрерывность функции нескольких переменных.</div>
+    </div>
+    <div class="ticket-content">
+        <div class="theory">
+            <p>Для функции \(u=f(x_1,\dots,x_n)\) <strong>линией (поверхностью) уровня</strong> называется множество \(\{x\in D: f(x)=c\}\), где \(c\) — константа. При \(n=2\) — линии, при \(n=3\) — поверхности. Они показывают, где функция принимает одинаковое значение.</p>
+            <p><strong>Предел функции \(f\) в точке \(a\)</strong> (конечный): \(\lim_{x\to a} f(x)=L\), если \(\forall\varepsilon>0\ \exists\delta>0: \forall x\in D,\ 0<\rho(x,a)<\delta \Rightarrow |f(x)-L|<\varepsilon\). Важно: предел не зависит от пути приближения к \(a\).</p>
+            <p><strong>Непрерывность</strong> в точке \(a\): \(\lim_{x\to a} f(x)=f(a)\). Эквивалентно: \(\forall\varepsilon>0\ \exists\delta>0: \rho(x,a)<\delta \Rightarrow |f(x)-f(a)|<\varepsilon\).</p>
+        </div>
+        <div class="example">
+            <strong>🗺️ Пример:</strong> \(f(x,y)=\sin(x^2+y^2)\). Линии уровня — окружности \(x^2+y^2 = \arcsin c + 2\pi k\). Предел при \((x,y)\to(0,0)\) равен 0, функция непрерывна в нуле. Контрпример: \(f(x,y)=\frac{xy}{x^2+y^2}\) не имеет предела в (0,0), так как по разным лучам пределы разные.
+        </div>
+        <div class="comment">
+            В многомерном случае существование предела по всем направлениям необходимо, но не достаточно (нужны всевозможные кривые). Классический пример \(xy/(x^2+y^2)\) показывает, что по прямым \(y=kx\) предел \(k/(1+k^2)\) зависит от \(k\).
+        </div>
+    </div>
+</div>
+
+<!-- Билет 29 -->
+<div class="ticket-card">
+    <div class="ticket-header">
+        <span class="ticket-number">Билет №29</span>
+        <div class="ticket-title">Точки, линии, поверхности разрыва. Частные производные.</div>
+    </div>
+    <div class="ticket-content">
+        <div class="theory">
+            <p>Точка разрыва функции нескольких переменных — точка, в которой функция не является непрерывной. Разрывы могут быть изолированными, а также образовывать линии (для \(n=2\)) или поверхности (для \(n=3\)). Например, функция \(f(x,y)=\frac{1}{x^2+y^2-1}\) имеет разрыв на окружности \(x^2+y^2=1\).</p>
+            <p><strong>Частная производная</strong> по переменной \(x_i\) в точке \(a\):
+            \[
+            \frac{\partial f}{\partial x_i}(a) = \lim_{h\to0} \frac{f(a_1,\dots,a_i+h,\dots,a_n)-f(a)}{h},
+            \]
+            если предел существует. Это производная вдоль координатной оси, остальные переменные фиксированы.</p>
+        </div>
+        <div class="example">
+            <strong>📉 Пример:</strong> \(f(x,y)=x^2y + \sin(xy)\). Частные производные: \(\frac{\partial f}{\partial x}=2xy + y\cos(xy)\), \(\frac{\partial f}{\partial y}=x^2 + x\cos(xy)\). В точке \((0,1)\): \(f_x=0+1\cdot\cos0=1\), \(f_y=0+0=0\).
+        </div>
+        <div class="comment">
+            Частные производные характеризуют скорость изменения функции вдоль координатных направлений. Существование частных производных не гарантирует даже непрерывности (пример: \(f(x,y)=0\) при \(xy=0\) и 1 иначе — частные производные в нуле равны 0, но функция разрывна).
+        </div>
+    </div>
+</div>
+
+<!-- Билет 30 -->
+<div class="ticket-card">
+    <div class="ticket-header">
+        <span class="ticket-number">Билет №30</span>
+        <div class="ticket-title">Дифференцируемость функции нескольких переменных, связь с частными производными. Дифференциал функции нескольких переменных.</div>
+    </div>
+    <div class="ticket-content">
+        <div class="theory">
+            <p>Функция \(f\) <strong>дифференцируема</strong> в точке \(a\), если существует линейное отображение (дифференциал) \(df(a):\mathbb{R}^n\to\mathbb{R}\) такое, что
+            \[
+            f(a+h)-f(a) = df(a)(h) + o(\|h\|) \quad (h\to0).
+            \]
+            В координатах \(df(a)(h) = \sum_{i=1}^{n} \frac{\partial f}{\partial x_i}(a)\, h_i\). Необходимым условием дифференцируемости является существование всех частных производных в точке \(a\). Достаточное условие: частные производные существуют в окрестности \(a\) и непрерывны в \(a\).</p>
+            <p><strong>Дифференциал</strong> — главная линейная часть приращения функции. Обозначается \(df = \frac{\partial f}{\partial x_1}dx_1 + \dots + \frac{\partial f}{\partial x_n}dx_n\).</p>
+        </div>
+        <div class="example">
+            <strong>✏️ Пример:</strong> \(f(x,y)=x^2y\). Дифференциал в точке \((1,2)\): \(df=2xy\,dx + x^2\,dy = 4dx + 1\,dy\). При \(h=(0.1, -0.2)\) приближённое приращение \(df\approx 4\cdot0.1+1\cdot(-0.2)=0.2\), точное \(f(1.1,1.8)-f(1,2)=1.1^2\cdot1.8-2=2.178-2=0.178\).
+        </div>
+        <div class="comment">
+            Дифференцируемость сильнее существования частных производных: она гарантирует непрерывность и позволяет линеаризовать функцию. Формула полного дифференциала используется для приближённых вычислений.
+        </div>
+    </div>
+</div>
+
+<!-- Билет 31 -->
+<div class="ticket-card">
+    <div class="ticket-header">
+        <span class="ticket-number">Билет №31</span>
+        <div class="ticket-title">Геометрический смысл частных производных и дифференциала функции двух переменных. Дифференцирование сложных функций нескольких переменных.</div>
+    </div>
+    <div class="ticket-content">
+        <div class="theory">
+            <p>Для \(z=f(x,y)\) частная производная \(f_x(x_0,y_0)\) равна угловому коэффициенту касательной к сечению поверхности плоскостью \(y=y_0\) в точке \((x_0,y_0,f(x_0,y_0))\). Аналогично \(f_y\) — касательная в сечении \(x=x_0\).</p>
+            <p>Дифференциал \(dz = f_x dx + f_y dy\) задаёт приращение аппликаты касательной плоскости. Касательная плоскость: \(z - z_0 = f_x(x_0,y_0)(x-x_0) + f_y(x_0,y_0)(y-y_0)\).</p>
+            <p><strong>Дифференцирование сложной функции:</strong> если \(z = f(x_1(t),\dots,x_n(t))\), то
+            \[
+            \frac{dz}{dt} = \sum_{i=1}^{n} \frac{\partial f}{\partial x_i}\cdot \frac{dx_i}{dt}.
+            \]
+            Для функции \(z=f(x(u,v), y(u,v))\) частные производные по \(u,v\) находятся аналогично.</p>
+        </div>
+        <div class="example">
+            <strong>📐 Пример:</strong> \(z = x^2y\), где \(x=t^2\), \(y=\sin t\). \(\frac{dz}{dt}=2xy\cdot 2t + x^2\cdot\cos t = 2(t^2)(\sin t)\cdot 2t + (t^4)\cos t = 4t^3\sin t + t^4\cos t\).
+        </div>
+        <div class="comment">
+            Правила дифференцирования сложных функций — основа для замены переменных в дифференциальных уравнениях и физических приложениях. Полная производная учитывает вклад всех аргументов.
+        </div>
+    </div>
+</div>
+
+<!-- Билет 32 -->
+<div class="ticket-card">
+    <div class="ticket-header">
+        <span class="ticket-number">Билет №32</span>
+        <div class="ticket-title">Полная производная. Инвариантность первого дифференциала.</div>
+    </div>
+    <div class="ticket-content">
+        <div class="theory">
+            <p><strong>Полная производная</strong> функции \(f(x_1,\dots,x_n)\) по параметру \(t\), если \(x_i = x_i(t)\), равна \(\frac{df}{dt} = \sum \frac{\partial f}{\partial x_i}\frac{dx_i}{dt}\).</p>
+            <p><strong>Инвариантность формы первого дифференциала</strong> означает, что выражение \(df = \sum \frac{\partial f}{\partial x_i} dx_i\) сохраняет свой вид при замене переменных, если \(dx_i\) интерпретировать как дифференциалы независимых переменных. Формально, если \(x_i = x_i(u_1,\dots,u_m)\), то
+            \[
+            df = \sum_{i=1}^{n} \frac{\partial f}{\partial x_i} dx_i = \sum_{j=1}^{m} \left(\sum_{i=1}^{n} \frac{\partial f}{\partial x_i}\frac{\partial x_i}{\partial u_j}\right) du_j = \sum_{j=1}^{m} \frac{\partial f}{\partial u_j} du_j.
+            \]
+            Это свойство позволяет записывать дифференциал в любых координатах.</p>
+        </div>
+        <div class="example">
+            <strong>🔄 Пример:</strong> \(f(x,y)=x^2+y^2\). В полярных координатах \(x=r\cos\varphi, y=r\sin\varphi\) имеем \(f=r^2\). Тогда \(df = 2r\, dr\). С другой стороны, \(df = 2x\,dx+2y\,dy = 2r\cos\varphi (dr\cos\varphi - r\sin\varphi d\varphi) + 2r\sin\varphi (dr\sin\varphi + r\cos\varphi d\varphi) = 2r\,dr\). Инвариантность выполнена.
+        </div>
+        <div class="comment">
+            Инвариантность первого дифференциала — ключевое свойство, используемое в термодинамике и дифференциальной геометрии. Она означает, что дифференциал — это ковектор, не зависящий от выбора координат.
+        </div>
+    </div>
+</div>
+
+<!-- Билет 33 -->
+<div class="ticket-card">
+    <div class="ticket-header">
+        <span class="ticket-number">Билет №33</span>
+        <div class="ticket-title">Градиент функции нескольких переменных. Производная по направлению.</div>
+    </div>
+    <div class="ticket-content">
+        <div class="theory">
+            <p><strong>Градиент</strong> функции \(f\) в точке \(a\) — вектор частных производных:
+            \[
+            \nabla f(a) = \left( \frac{\partial f}{\partial x_1}(a), \dots, \frac{\partial f}{\partial x_n}(a) \right).
+            \]
+            Градиент указывает направление наискорейшего возрастания функции, а его длина — скорость этого возрастания.</p>
+            <p><strong>Производная по направлению</strong> единичного вектора \(l = (l_1,\dots,l_n)\):
+            \[
+            \frac{\partial f}{\partial l}(a) = \lim_{t\to0}\frac{f(a+tl)-f(a)}{t} = \nabla f(a) \cdot l,
+            \]
+            если \(f\) дифференцируема. Это скорость изменения функции в направлении \(l\).</p>
+        </div>
+        <div class="example">
+            <strong>🧭 Пример:</strong> \(f(x,y)=x^2+2y^2\) в точке \((1,1)\). \(\nabla f = (2x,4y) = (2,4)\). Производная по направлению вектора \(l=(\frac{1}{\sqrt{2}},\frac{1}{\sqrt{2}})\): \(\frac{\partial f}{\partial l}=2\cdot\frac{1}{\sqrt{2}}+4\cdot\frac{1}{\sqrt{2}}=\frac{6}{\sqrt{2}}=3\sqrt{2}\). Это максимальное значение среди всех направлений равно длине градиента \(\sqrt{2^2+4^2}=\sqrt{20}=2\sqrt{5}\approx4.472\).
+        </div>
+        <div class="comment">
+            Градиент широко применяется в оптимизации (метод градиентного спуска), физике (потенциальные поля), анализе данных. Производная по направлению обобщает частные производные.
+        </div>
+    </div>
+</div>
+
+<!-- Билет 34 -->
+<div class="ticket-card">
+    <div class="ticket-header">
+        <span class="ticket-number">Билет №34</span>
+        <div class="ticket-title">Свойства градиента. Дифференцирование неявных функций.</div>
+    </div>
+    <div class="ticket-content">
+        <div class="theory">
+            <p><strong>Свойства градиента:</strong>
+            <ul>
+                <li>\(\nabla(\alpha f + \beta g) = \alpha\nabla f + \beta\nabla g\) (линейность).</li>
+                <li>\(\nabla(fg) = f\nabla g + g\nabla f\).</li>
+                <li>Если \(f\) дифференцируема, то в точке градиент ортогонален линии (поверхности) уровня.</li>
+                <li>Максимальная скорость изменения равна \(\|\nabla f\|\), достигается в направлении градиента.</li>
+            </ul>
+            </p>
+            <p><strong>Дифференцирование неявной функции:</strong> Если уравнение \(F(x,y)=0\) определяет \(y\) как неявную функцию \(y(x)\), то при \(F_y\neq0\):
+            \[
+            \frac{dy}{dx} = -\frac{F_x}{F_y}.
+            \]
+            Для \(F(x,y,z)=0\) частные производные неявной функции \(z=z(x,y)\):
+            \[
+            \frac{\partial z}{\partial x} = -\frac{F_x}{F_z},\quad \frac{\partial z}{\partial y} = -\frac{F_y}{F_z}.
+            \]
+            </p>
+        </div>
+        <div class="example">
+            <strong>📌 Пример:</strong> Уравнение окружности \(x^2+y^2=1\). \(F(x,y)=x^2+y^2-1\). Тогда \(\frac{dy}{dx} = -\frac{2x}{2y} = -\frac{x}{y}\) при \(y\neq0\).
+        </div>
+        <div class="comment">
+            Теорема о неявной функции гарантирует существование и дифференцируемость неявно заданной функции в окрестности точки, где \(F=0\) и \(F_y\neq0\). Это фундаментальный результат многомерного анализа.
+        </div>
+    </div>
+</div>
+
+<!-- Билет 35 -->
+<div class="ticket-card">
+    <div class="ticket-header">
+        <span class="ticket-number">Билет №35</span>
+        <div class="ticket-title">Касательная плоскость и нормаль к поверхности. Частные производные высших порядков.</div>
+    </div>
+    <div class="ticket-content">
+        <div class="theory">
+            <p>Поверхность задана уравнением \(z=f(x,y)\) или неявно \(F(x,y,z)=0\).</p>
+            <p><strong>Касательная плоскость</strong> в точке \((x_0,y_0,z_0)\):
+            <ul>
+                <li>Для явного задания: \(z-z_0 = f_x(x_0,y_0)(x-x_0) + f_y(x_0,y_0)(y-y_0)\).</li>
+                <li>Для неявного: \(F_x(x_0,y_0,z_0)(x-x_0)+F_y(...)(y-y_0)+F_z(...)(z-z_0)=0\).</li>
+            </ul>
+            <strong>Нормаль</strong> — прямая, перпендикулярная касательной плоскости. Направляющий вектор нормали: \(( -f_x, -f_y, 1)\) или \(\nabla F\).</p>
+            <p><strong>Частные производные высших порядков</strong> определяются повторным дифференцированием: \(\frac{\partial^2 f}{\partial x_i\partial x_j} = \frac{\partial}{\partial x_j}\left(\frac{\partial f}{\partial x_i}\right)\). Если смешанные производные непрерывны, то они равны (теорема Шварца).</p>
+        </div>
+        <div class="example">
+            <strong>📐 Пример:</strong> Поверхность \(z=x^2+y^2\) в точке \((1,1,2)\). \(f_x=2x=2\), \(f_y=2y=2\). Касательная плоскость: \(z-2=2(x-1)+2(y-1)\) ⇒ \(z=2x+2y-2\). Вектор нормали: \((-2,-2,1)\). Частные производные второго порядка: \(f_{xx}=2\), \(f_{yy}=2\), \(f_{xy}=0\).
+        </div>
+        <div class="comment">
+            Касательная плоскость даёт наилучшее линейное приближение поверхности. Нормаль используется в задачах отражения света, в дифференциальной геометрии. Равенство смешанных производных упрощает вычисления.
+        </div>
+    </div>
+</div>
+
+<!-- Билет 36 -->
+<div class="ticket-card">
+    <div class="ticket-header">
+        <span class="ticket-number">Билет №36</span>
+        <div class="ticket-title">Перестановка порядка дифференцирования. Дифференциалы высших порядков.</div>
+    </div>
+    <div class="ticket-content">
+        <div class="theory">
+            <p><strong>Теорема Шварца (о равенстве смешанных производных):</strong> Если функция \(f\) имеет непрерывные смешанные производные \(\frac{\partial^2 f}{\partial x_i\partial x_j}\) и \(\frac{\partial^2 f}{\partial x_j\partial x_i}\) в некоторой окрестности точки, то они равны в этой точке. Порядок дифференцирования можно менять.</p>
+            <p><strong>Дифференциалы высших порядков</strong> определяются как дифференциалы от дифференциалов. Второй дифференциал:
+            \[
+            d^2f = d(df) = \sum_{i,j=1}^{n} \frac{\partial^2 f}{\partial x_i\partial x_j} dx_i dx_j.
+            \]
+            Для функции двух переменных: \(d^2f = f_{xx}dx^2 + 2f_{xy}dxdy + f_{yy}dy^2\). Дифференциалы высших порядков используются в формуле Тейлора и при исследовании экстремумов.</p>
+        </div>
+        <div class="example">
+            <strong>🔄 Пример:</strong> \(f(x,y)=e^x\sin y\). \(f_{xx}=e^x\sin y\), \(f_{xy}=e^x\cos y\), \(f_{yx}=e^x\cos y\), \(f_{yy}=-e^x\sin y\). Равенство \(f_{xy}=f_{yx}\) выполняется. Второй дифференциал: \(d^2f = e^x\sin y\,dx^2 + 2e^x\cos y\,dxdy - e^x\sin y\,dy^2\).
+        </div>
+        <div class="comment">
+            Перестановка порядка дифференцирования часто используется при решении дифференциальных уравнений в частных производных и при вычислении кратных интегралов. Дифференциалы высших порядков не обладают свойством инвариантности формы (в отличие от первого).
+        </div>
+    </div>
+</div>
+
+<!-- Билет 37 -->
+<div class="ticket-card">
+    <div class="ticket-header">
+        <span class="ticket-number">Билет №37</span>
+        <div class="ticket-title">Знакоопределенность второго дифференциала. Формула Тейлора для функции нескольких переменных.</div>
+    </div>
+    <div class="ticket-content">
+        <div class="theory">
+            <p>Квадратичная форма \(d^2f(a) = \sum_{i,j} f_{x_ix_j}(a) h_i h_j\) называется <strong>знакоопределенной</strong>, если она сохраняет знак для всех ненулевых векторов \(h\):
+            <ul>
+                <li>Положительно определенная, если \(d^2f>0\) для всех \(h\neq0\).</li>
+                <li>Отрицательно определенная, если \(d^2f<0\).</li>
+                <li>Знакопеременная, если принимает значения разных знаков.</li>
+            </ul>
+            Критерий Сильвестра: для положительной определённости все главные миноры матрицы Гессе должны быть положительны.</p>
+            <p><strong>Формула Тейлора</strong> в окрестности точки \(a\):
+            \[
+            f(a+h) = f(a) + df(a)(h) + \frac{1}{2!}d^2f(a)(h) + \dots + \frac{1}{k!}d^kf(a)(h) + R_k(h),
+            \]
+            где \(R_k(h)=o(\|h\|^k)\) (форма Пеано) или интегральная форма остатка. Для двух переменных до второго порядка:
+            \[
+            f(x_0+h, y_0+k) = f + (f_x h+f_y k) + \frac12(f_{xx}h^2+2f_{xy}hk+f_{yy}k^2) + \dots
+            \]
+            </p>
+        </div>
+        <div class="example">
+            <strong>📈 Пример:</strong> \(f(x,y)=x^2+xy+y^2\) в точке \((0,0)\). \(df=0\), \(d^2f=2dx^2+2dxdy+2dy^2 = 2(dx^2+dxdy+dy^2)\). Матрица Гессе \(\begin{pmatrix}2 & 1\\1&2\end{pmatrix}\), её главные миноры: 2>0, det=4-1=3>0 ⇒ положительно определена. Формула Тейлора: \(f(h,k)=h^2+hk+k^2\).
+        </div>
+        <div class="comment">
+            Знакоопределённость второго дифференциала играет решающую роль в определении типа экстремума. Формула Тейлора позволяет приближать сложные функции многочленами с контролируемой погрешностью.
+        </div>
+    </div>
+</div>
+
+<!-- Билет 38 -->
+<div class="ticket-card">
+    <div class="ticket-header">
+        <span class="ticket-number">Билет №38</span>
+        <div class="ticket-title">Экстремумы функции нескольких переменных. Необходимые условия экстремума. Стационарные точки функции.</div>
+    </div>
+    <div class="ticket-content">
+        <div class="theory">
+            <p>Точка \(a\) называется точкой <strong>локального максимума (минимума)</strong> функции \(f\), если существует окрестность, в которой \(f(x)\le f(a)\) (\(f(x)\ge f(a)\)) для всех \(x\).</p>
+            <p><strong>Необходимое условие экстремума</strong> (для дифференцируемой функции): если \(a\) — точка экстремума, то все частные производные в этой точке равны нулю:
+            \[
+            \frac{\partial f}{\partial x_i}(a)=0,\quad i=1,\dots,n.
+            \]
+            Точки, удовлетворяющие этому условию, называются <strong>стационарными</strong>. Однако не всякая стационарная точка является экстремумом (например, седловая точка).</p>
+        </div>
+        <div class="example">
+            <strong>⛰️ Пример:</strong> \(f(x,y)=x^2-y^2\). Частные производные: \(2x=0,\ -2y=0\) ⇒ стационарная точка \((0,0)\). Но это не экстремум, так как вдоль оси \(x\) функция возрастает, а вдоль оси \(y\) убывает (седло).
+        </div>
+        <div class="comment">
+            Необходимое условие аналогично одномерному случаю, но в многомерном случае одного равенства нулю градиента недостаточно. Исследование требует анализа второго дифференциала или других методов.
+        </div>
+    </div>
+</div>
+
+<!-- Билет 39 -->
+<div class="ticket-card">
+    <div class="ticket-header">
+        <span class="ticket-number">Билет №39</span>
+        <div class="ticket-title">Достаточные условия экстремума. Условный экстремум. Функция Лагранжа.</div>
+    </div>
+    <div class="ticket-content">
+        <div class="theory">
+            <p><strong>Достаточные условия экстремума</strong> в стационарной точке \(a\) основаны на знаке второго дифференциала:
+            <ul>
+                <li>Если \(d^2f(a)\) положительно определена, то \(a\) — точка локального минимума.</li>
+                <li>Если \(d^2f(a)\) отрицательно определена, то \(a\) — точка локального максимума.</li>
+                <li>Если \(d^2f(a)\) знакопеременна, то экстремума нет (седло).</li>
+                <li>Если \(d^2f(a)\) вырождена (полуопределена), требуется дополнительное исследование.</li>
+            </ul>
+            </p>
+            <p><strong>Условный экстремум</strong> — экстремум функции \(f(x)\) при наличии связей \(g_1(x)=0,\dots,g_m(x)=0\) (\(m<n\)). <strong>Метод множителей Лагранжа:</strong> составляется функция Лагранжа \(\mathcal{L}(x,\lambda)=f(x)+\sum_{j=1}^m \lambda_j g_j(x)\). Необходимое условие: \(\nabla\mathcal{L}=0\) (по всем переменным и \(\lambda\)). Далее исследуется знак второго дифференциала \(\mathcal{L}\) на касательном пространстве к связям.</p>
+        </div>
+        <div class="example">
+            <strong>🎯 Пример:</strong> Найти экстремумы \(f(x,y)=x^2+y^2\) при условии \(x+y=1\). \(\mathcal{L}=x^2+y^2+\lambda(x+y-1)\). \(\partial/\partial x=2x+\lambda=0\), \(\partial/\partial y=2y+\lambda=0\), \(x+y=1\) ⇒ \(x=y=0.5\), \(\lambda=-1\). Точка \((0.5,0.5)\) — условный минимум (расстояние от начала до прямой).
+        </div>
+        <div class="comment">
+            Условный экстремум широко применяется в оптимизации, экономике, физике (например, нахождение экстремума энтропии при заданной энергии). Метод Лагранжа сводит задачу к безусловной в пространстве большей размерности.
+        </div>
+    </div>
+</div>
+
+<!-- Билет 40 -->
+<div class="ticket-card">
+    <div class="ticket-header">
+        <span class="ticket-number">Билет №40</span>
+        <div class="ticket-title">Нахождение наибольшего и наименьшего значения функции, непрерывной на ограниченном замкнутом множестве. Определение двойного интеграла.</div>
+    </div>
+    <div class="ticket-content">
+        <div class="theory">
+            <p>По теореме Вейерштрасса, непрерывная функция на ограниченном замкнутом множестве \(D\subset\mathbb{R}^n\) достигает своих наибольшего и наименьшего значений. Для нахождения глобальных экстремумов необходимо:
+            <ol>
+                <li>Найти критические точки внутри \(D\) (градиент = 0).</li>
+                <li>Исследовать границу \(D\) (свести к задачам на меньшую размерность).</li>
+                <li>Вычислить значения функции во всех найденных точках и выбрать наибольшее/наименьшее.</li>
+            </ol>
+            </p>
+            <p><strong>Определение двойного интеграла</strong> для функции \(f(x,y)\) на области \(D\subset\mathbb{R}^2\): разбиваем область на малые ячейки (например, прямоугольники), составляем интегральную сумму \(\sum f(\xi_i,\eta_i)\Delta S_i\), и при стремлении диаметра разбиения к нулю получаем предел — двойной интеграл \(\iint_D f(x,y)\,dxdy\). Геометрически: объём цилиндрического тела между поверхностью \(z=f(x,y)\) и областью \(D\) (при \(f\ge0\)).</p>
+        </div>
+        <div class="example">
+            <strong>📦 Пример:</strong> Найти наибольшее и наименьшее значения \(f(x,y)=x^2+y^2-2x-2y+4\) на треугольнике с вершинами \((0,0), (2,0), (0,2)\). Внутри стационарная точка: \(f_x=2x-2=0, f_y=2y-2=0\) ⇒ \((1,1)\) внутри, \(f(1,1)=2\). На границах: на \(x=0\) \(f=y^2-2y+4\) → минимум при \(y=1\): \(f=3\); на \(y=0\) \(x^2-2x+4\) → при \(x=1\): \(3\); на \(x+y=2\) подстановка даёт \(2x^2-4x+4\) → минимум \(2\) в \((1,1)\). Сравнивая значения в вершинах: \(f(0,0)=4, f(2,0)=4, f(0,2)=4\). Глобальный минимум = 2, максимум = 4.
+        </div>
+        <div class="comment">
+            Двойной интеграл обобщает определённый интеграл на двумерные области. Он используется для вычисления площадей, объёмов, массы пластин, центров масс и т.д. Свойства двойного интеграла аналогичны одномерному: линейность, аддитивность, интегрирование неравенств.
+        </div>
+    </div>
+</div>
+<div class="tickets-grid">
+    <!-- БИЛЕТ 40 -->
+    <div class="ticket-card">
+        <div class="ticket-header">
+            <span class="ticket-number">Билет №40</span>
+            <div class="ticket-title">Нахождение наибольшего и наименьшего значения функции, непрерывной на ограниченном замкнутом множестве. Определение двойного интеграла.</div>
+        </div>
+        <div class="ticket-content">
+            <div class="theory">
+                <p><strong>Теорема Вейерштрасса:</strong> Если функция \(f\) непрерывна на ограниченном замкнутом множестве \(D \subset \mathbb{R}^n\), то она достигает на \(D\) своих наибольшего и наименьшего значений. Для нахождения глобальных экстремумов на \(D\) необходимо:</p>
+                <ul>
+                    <li>Найти все критические точки (стационарные и точки, где дифференциал не определён) внутри \(D\).</li>
+                    <li>Исследовать границу \(\partial D\) — свести к задаче условного экстремума или параметризации.</li>
+                    <li>Сравнить значения функции во всех найденных точках и выбрать максимум/минимум.</li>
+                </ul>
+                <p><strong>Определение двойного интеграла.</strong> Пусть \(f(x,y)\) определена на ограниченной замкнутой области \(D \subset \mathbb{R}^2\). Разобьём \(D\) на частичные области \(\Delta D_i\) (ячейки) с площадями \(\Delta \sigma_i\), мелкость разбиения \(\lambda = \max \text{diam}(\Delta D_i)\). В каждой ячейке выберем точку \((\xi_i, \eta_i)\) и составим интегральную сумму:
+                \[
+                S = \sum_{i=1}^n f(\xi_i, \eta_i)\,\Delta\sigma_i.
+                \]
+                Если при \(\lambda \to 0\) существует конечный предел \(I\), не зависящий от способа разбиения и выбора точек, то этот предел называется <strong>двойным интегралом</strong>:
+                \[
+                \iint\limits_D f(x,y)\,d\sigma = \lim_{\lambda\to 0}\sum_{i=1}^n f(\xi_i,\eta_i)\Delta\sigma_i.
+                \]
+                Функция \(f\) при этом называется интегрируемой по Риману на \(D\).</p>
+            </div>
+            <div class="example">
+                <strong>📌 Пример нахождения глобального экстремума:</strong> \(f(x,y)=x^2+y^2\) на замкнутом круге \(x^2+y^2 \le 1\). Критическая точка внутри: \((0,0)\), \(f=0\). На границе \(x^2+y^2=1\) функция равна \(1\). Глобальный минимум \(0\), максимум \(1\).<br>
+                <strong>📐 Пример двойного интеграла:</strong> \(\iint\limits_{[0,1]\times[0,1]} (x+y)\,dxdy\) — площадь единичного квадрата. Разбивая на мелкие прямоугольники, предел интегральных сумм равен \(\int_0^1\int_0^1 (x+y)dxdy = 1\).
+            </div>
+            <div class="comment">
+                Двойной интеграл обобщает определённый интеграл на двумерные области. Геометрически для неотрицательной \(f\) он задаёт объём цилиндрического тела под поверхностью \(z=f(x,y)\) над областью \(D\).
+            </div>
+        </div>
+    </div>
+
+    <!-- БИЛЕТ 41 -->
+    <div class="ticket-card">
+        <div class="ticket-header">
+            <span class="ticket-number">Билет №41</span>
+            <div class="ticket-title">Свойства двойного интеграла. Вычисление двойного интеграла в декартовых координатах, повторные интегралы.</div>
+        </div>
+        <div class="ticket-content">
+            <div class="theory">
+                <p><strong>Основные свойства двойного интеграла</strong> (аналогичны определённому интегралу):</p>
+                <ul>
+                    <li><strong>Линейность:</strong> \(\iint_D (\alpha f+\beta g)\,d\sigma = \alpha\iint_D f\,d\sigma + \beta\iint_D g\,d\sigma\).</li>
+                    <li><strong>Аддитивность:</strong> Если \(D = D_1 \cup D_2\), \(D_1\cap D_2\) — нулевой площади, то \(\iint_D = \iint_{D_1} + \iint_{D_2}\).</li>
+                    <li><strong>Интегрирование неравенств:</strong> \(f \le g \Rightarrow \iint_D f \le \iint_D g\).</li>
+                    <li><strong>Оценка модуля:</strong> \(\left|\iint_D f\right| \le \iint_D |f|\).</li>
+                    <li><strong>Теорема о среднем:</strong> Для непрерывной \(f\) на связной компактной \(D\) существует точка \((\xi,\eta)\in D\): \(\iint_D f\,d\sigma = f(\xi,\eta)\cdot S(D)\), где \(S(D)\) — площадь \(D\).</li>
+                </ul>
+                <p><strong>Вычисление в декартовых координатах через повторные интегралы.</strong> Пусть область \(D\) правильная в направлении оси \(Oy\): \(a \le x \le b\), \(y_1(x) \le y \le y_2(x)\). Тогда
+                \[
+                \iint\limits_D f(x,y)\,dxdy = \int\limits_a^b \left( \int\limits_{y_1(x)}^{y_2(x)} f(x,y)\,dy \right)dx.
+                \]
+                Аналогично, если \(D\) правильна относительно \(Ox\): \(c \le y \le d\), \(x_1(y) \le x \le x_2(y)\), то
+                \[
+                \iint\limits_D f(x,y)\,dxdy = \int\limits_c^d \left( \int\limits_{x_1(y)}^{x_2(y)} f(x,y)\,dx \right)dy.
+                \]
+                Порядок интегрирования выбирают исходя из простоты вычислений.</p>
+            </div>
+            <div class="example">
+                <strong>🧮 Пример:</strong> Вычислить \(\iint_D xy\,dxdy\), где \(D\) — треугольник с вершинами \((0,0), (1,0), (1,1)\). Область: \(0\le x\le 1,\; 0\le y\le x\). Тогда
+                \[
+                \int_0^1 \int_0^x xy\,dy\,dx = \int_0^1 x\left[\frac{y^2}{2}\right]_0^x dx = \int_0^1 \frac{x^3}{2}dx = \frac{1}{8}.
+                \]
+            </div>
+            <div class="comment">
+                Повторный интеграл — это практический способ сведения двойного интеграла к двум последовательным определённым интегралам. Важно правильно расставить пределы, описывая область.
+            </div>
+        </div>
+    </div>
+
+    <!-- БИЛЕТ 42 -->
+    <div class="ticket-card">
+        <div class="ticket-header">
+            <span class="ticket-number">Билет №42</span>
+            <div class="ticket-title">Изменение порядка интегрирования. Геометрический смысл двойного интеграла.</div>
+        </div>
+        <div class="ticket-content">
+            <div class="theory">
+                <p><strong>Изменение порядка интегрирования</strong> — это переход от повторного интеграла одного типа к другому. Необходимо переописать область \(D\) иначе. Например, если исходно \(D\) задана как \(a\le x\le b,\; y_1(x)\le y\le y_2(x)\), то для смены порядка выражаем \(x\) через \(y\): находим функции \(x_1(y), x_2(y)\) и пределы по \(y\) из проекции области на ось \(Oy\).</p>
+                <p><strong>Алгоритм:</strong></p>
+                <ol>
+                    <li>Нарисовать область интегрирования.</li>
+                    <li>Выразить границы области в виде \(c \le y \le d,\; x_1(y) \le x \le x_2(y)\).</li>
+                    <li>Записать интеграл \(\int_c^d \int_{x_1(y)}^{x_2(y)} f(x,y)\,dx\,dy\).</li>
+                </ol>
+                <p><strong>Геометрический смысл двойного интеграла.</strong> Для неотрицательной \(f(x,y)\) двойной интеграл \(\iint_D f(x,y)\,d\sigma\) равен объёму тела, ограниченного сверху поверхностью \(z=f(x,y)\), снизу областью \(D\) в плоскости \(Oxy\), сбоку — цилиндрической поверхностью с образующими, параллельными оси \(Oz\). Если \(f\equiv 1\), то интеграл даёт площадь области \(D\): \(S(D)=\iint_D d\sigma\).</p>
+            </div>
+            <div class="example">
+                <strong>🔄 Пример изменения порядка:</strong> Дан интеграл \(\int_0^1 \int_{x^2}^{\sqrt{x}} f(x,y)\,dy\,dx\). Область ограничена \(y=x^2\) и \(y=\sqrt{x}\) между \(x=0\) и \(x=1\). При смене порядка: \(y\) от \(0\) до \(1\), а \(x\) от \(y^2\) до \(\sqrt{y}\). Получаем \(\int_0^1 \int_{y^2}^{\sqrt{y}} f(x,y)\,dx\,dy\).<br>
+                <strong>📦 Геометрический пример:</strong> \(\iint_{x^2+y^2\le 1} \sqrt{1-x^2-y^2}\,dxdy\) — объём полусферы радиуса 1, равный \(\frac{2\pi}{3}\).
+            </div>
+            <div class="comment">
+                Умение менять порядок критически важно, когда один из повторных интегралов не берётся в элементарных функциях, а другой — легко вычисляется. Также это помогает при доказательстве равенства смешанных интегралов (теорема Фубини).
+            </div>
+        </div>
+    </div>
+
+    <!-- БИЛЕТ 43 -->
+    <div class="ticket-card">
+        <div class="ticket-header">
+            <span class="ticket-number">Билет №43</span>
+            <div class="ticket-title">Механический смысл двойного интеграла. Тройной интеграл. Определение и свойства.</div>
+        </div>
+        <div class="ticket-content">
+            <div class="theory">
+                <p><strong>Механический смысл двойного интеграла.</strong> Если \(f(x,y) \ge 0\) интерпретировать как поверхностную плотность материальной пластинки \(D\), то масса пластинки равна \(m = \iint_D f(x,y)\,d\sigma\). Координаты центра масс:
+                \[
+                x_c = \frac{1}{m}\iint_D x f\,d\sigma,\quad y_c = \frac{1}{m}\iint_D y f\,d\sigma.
+                \]
+                Моменты инерции, статические моменты также выражаются через двойные интегралы.</p>
+                <p><strong>Тройной интеграл</strong> — аналог для трёхмерных областей \(\Omega \subset \mathbb{R}^3\). Определение через разбиение на мелкие кубики (или ячейки) с объёмами \(\Delta V_i\):
+                \[
+                \iiint\limits_\Omega f(x,y,z)\,dV = \lim_{\lambda\to 0}\sum_{i=1}^n f(\xi_i,\eta_i,\zeta_i)\Delta V_i.
+                \]
+                Свойства: линейность, аддитивность, интегрирование неравенств, теорема о среднем. При \(f\equiv 1\) получаем объём \(\Omega\).</p>
+            </div>
+            <div class="example">
+                <strong>⚙️ Механический пример:</strong> Пластинка в виде квадрата \([0,1]\times[0,1]\) с плотностью \(\rho(x,y)=x+y\). Масса: \(\int_0^1\int_0^1 (x+y)dxdy = 1\).<br>
+                <strong>📦 Тройной интеграл:</strong> \(\iiint_{[0,1]^3} (x+y+z)\,dxdydz = 3\int_0^1 x dx = \frac{3}{2}\).
+            </div>
+            <div class="comment">
+                Тройной интеграл позволяет вычислять массу, заряд, момент инерции трёхмерных тел с переменной плотностью. Определение полностью аналогично двойному, но с трёхмерными ячейками.
+            </div>
+        </div>
+    </div>
+
+    <!-- БИЛЕТ 44 -->
+    <div class="ticket-card">
+        <div class="ticket-header">
+            <span class="ticket-number">Билет №44</span>
+            <div class="ticket-title">Вычисление тройного интеграла в декартовых координатах. Замена переменных в двойном интеграле.</div>
+        </div>
+        <div class="ticket-content">
+            <div class="theory">
+                <p><strong>Вычисление тройного интеграла в декартовых координатах</strong> сводится к трёхкратному повторному интегрированию. Если область \(\Omega\) правильна: проекция на \(Oxy\) — область \(D_{xy}\), и для каждой \((x,y)\in D_{xy}\) координата \(z\) меняется от \(z_1(x,y)\) до \(z_2(x,y)\), то
+                \[
+                \iiint_\Omega f(x,y,z)\,dxdydz = \iint_{D_{xy}}\left( \int_{z_1(x,y)}^{z_2(x,y)} f(x,y,z)\,dz \right)dxdy.
+                \]
+                Затем двойной интеграл вычисляется через повторные.</p>
+                <p><strong>Замена переменных в двойном интеграле.</strong> Пусть задано взаимно однозначное отображение \((x,y) = \Phi(u,v) = (x(u,v), y(u,v))\), переводящее область \(D_{uv}\) в \(D_{xy}\), с непрерывными частными производными. Тогда
+                \[
+                \iint_{D_{xy}} f(x,y)\,dxdy = \iint_{D_{uv}} f(x(u,v), y(u,v))\,|J(u,v)|\,dudv,
+                \]
+                где \(J(u,v) = \det\begin{pmatrix} x_u & x_v \\ y_u & y_v \end{pmatrix}\) — <strong>якобиан преобразования</strong>. Модуль якобиана учитывает изменение площади при отображении.</p>
+            </div>
+            <div class="example">
+                <strong>🔢 Пример тройного интеграла:</strong> \(\iiint_{[0,1]^3} x\,dxdydz = \int_0^1 x dx \int_0^1 dy \int_0^1 dz = \frac12\).<br>
+                <strong>🔄 Замена переменных:</strong> Переход к полярным координатам: \(x=r\cos\varphi, y=r\sin\varphi\), \(J = r\). Тогда \(\iint_{x^2+y^2\le R^2} f(x,y)dxdy = \int_0^{2\pi}\int_0^R f(r\cos\varphi, r\sin\varphi)\,r\,dr d\varphi\).
+            </div>
+            <div class="comment">
+                Замена переменных — мощный метод упрощения области интегрирования. Якобиан играет роль масштабного множителя: во сколько раз площадь (объём) искажается при преобразовании.
+            </div>
+        </div>
+    </div>
+
+    <!-- БИЛЕТ 45 -->
+    <div class="ticket-card">
+        <div class="ticket-header">
+            <span class="ticket-number">Билет №45</span>
+            <div class="ticket-title">Якобиан преобразования координат. Вычисление двойного интеграла в полярных координатах.</div>
+        </div>
+        <div class="ticket-content">
+            <div class="theory">
+                <p><strong>Якобиан</strong> (определитель Якоби) системы функций \((x_1,\dots,x_n)\) по переменным \((u_1,\dots,u_n)\):
+                \[
+                \frac{\partial(x_1,\dots,x_n)}{\partial(u_1,\dots,u_n)} = \det\begin{pmatrix}
+                \frac{\partial x_1}{\partial u_1} & \cdots & \frac{\partial x_1}{\partial u_n} \\
+                \vdots & \ddots & \vdots \\
+                \frac{\partial x_n}{\partial u_1} & \cdots & \frac{\partial x_n}{\partial u_n}
+                \end{pmatrix}.
+                \]
+                Геометрический смысл: абсолютная величина якобиана равна коэффициенту растяжения \(n\)-мерного объёма при отображении.</p>
+                <p><strong>Полярные координаты</strong> на плоскости: \(x = r\cos\varphi,\; y = r\sin\varphi\), где \(r\ge 0,\; 0\le\varphi<2\pi\). Якобиан:
+                \[
+                J = \frac{\partial(x,y)}{\partial(r,\varphi)} = \begin{vmatrix} \cos\varphi & -r\sin\varphi \\ \sin\varphi & r\cos\varphi \end{vmatrix} = r(\cos^2\varphi+\sin^2\varphi)=r.
+                \]
+                Формула перехода:
+                \[
+                \iint_{D_{xy}} f(x,y)\,dxdy = \iint_{D_{r\varphi}} f(r\cos\varphi, r\sin\varphi)\,r\,dr d\varphi.
+                \]
+                Это особенно удобно для круговых, кольцевых и секторных областей.</p>
+            </div>
+            <div class="example">
+                <strong>🧩 Пример:</strong> Вычислить \(\iint_{x^2+y^2\le R^2} e^{-(x^2+y^2)}dxdy\). В полярных координатах:
+                \[
+                \int_0^{2\pi}\int_0^R e^{-r^2}\,r\,dr d\varphi = 2\pi \cdot \left[-\frac12 e^{-r^2}\right]_0^R = \pi(1-e^{-R^2}).
+                \]
+                При \(R\to\infty\) получаем \(\pi\) — известный интеграл Пуассона.
+            </div>
+            <div class="comment">
+                Полярные координаты незаменимы, когда подынтегральная функция или область обладают круговой симметрией. Множитель \(r\) возникает из-за того, что элемент площади в полярных координатах имеет вид \(r\,dr d\varphi\).
+            </div>
+        </div>
+    </div>
+
+    <!-- БИЛЕТ 46 -->
+    <div class="ticket-card">
+        <div class="ticket-header">
+            <span class="ticket-number">Билет №46</span>
+            <div class="ticket-title">Замена переменных в тройном интеграле. Вычисление тройного интеграла в цилиндрических координатах.</div>
+        </div>
+        <div class="ticket-content">
+            <div class="theory">
+                <p><strong>Замена переменных в тройном интеграле:</strong> для отображения \((x,y,z)=\Phi(u,v,w)\) с якобианом \(J(u,v,w)=\frac{\partial(x,y,z)}{\partial(u,v,w)}\) формула:
+                \[
+                \iiint_{\Omega_{xyz}} f(x,y,z)\,dxdydz = \iiint_{\Omega_{uvw}} f(\Phi(u,v,w))\,|J|\,dudvdw.
+                \]
+                <strong>Цилиндрические координаты</strong> — комбинация полярных по \(x,y\) и декартовой \(z\):
+                \[
+                x = r\cos\varphi,\; y = r\sin\varphi,\; z = z,\quad r\ge0,\; 0\le\varphi<2\pi,\; z\in\mathbb{R}.
+                \]
+                Якобиан: \(J = r\) (как для полярных, а \(z\) не меняется). Таким образом,
+                \[
+                \iiint_{\Omega} f(x,y,z)\,dxdydz = \iiint_{\Omega'} f(r\cos\varphi, r\sin\varphi, z)\,r\,dr d\varphi dz.
+                \]
+                Цилиндрические координаты удобны, когда область имеет ось симметрии (например, цилиндр, конус, параболоид вращения).</p>
+            </div>
+            <div class="example">
+                <strong>📏 Пример:</strong> Найти объём цилиндра \(x^2+y^2\le R^2,\; 0\le z\le H\). В цилиндрических координатах:
+                \[
+                V = \iiint dV = \int_0^{2\pi}\int_0^R\int_0^H r\,dz dr d\varphi = \int_0^{2\pi} d\varphi \int_0^R rH dr = 2\pi \cdot \frac{R^2H}{2} = \pi R^2 H.
+                \]
+                <strong>Другой пример:</strong> \(\iiint_{x^2+y^2\le 1} z^2 dxdydz\) для \(0\le z\le 1\) — легко вычисляется с множителем \(r\).
+            </div>
+            <div class="comment">
+                В цилиндрических координатах элемент объёма равен \(r\,dr d\varphi dz\). Переход к ним часто упрощает тройные интегралы, особенно когда подынтегральная функция зависит от \(x^2+y^2\) или область ограничена цилиндрическими поверхностями.
+            </div>
+        </div>
+    </div>
+
+    <!-- БИЛЕТ 47 -->
+    <div class="ticket-card">
+        <div class="ticket-header">
+            <span class="ticket-number">Билет №47</span>
+            <div class="ticket-title">Вычисление тройного интеграла в сферических координатах. Приложения (геометрические и физические) двойного и тройного интегралов.</div>
+        </div>
+        <div class="ticket-content">
+            <div class="theory">
+                <p><strong>Сферические координаты</strong> в \(\mathbb{R}^3\):
+                \[
+                x = \rho\sin\theta\cos\varphi,\quad y = \rho\sin\theta\sin\varphi,\quad z = \rho\cos\theta,
+                \]
+                где \(\rho\ge 0\) — радиальное расстояние, \(\theta\in[0,\pi]\) — полярный угол (от оси \(Oz\)), \(\varphi\in[0,2\pi)\) — азимут. Якобиан преобразования:
+                \[
+                J = \rho^2 \sin\theta.
+                \]
+                Формула перехода:
+                \[
+                \iiint_{\Omega} f(x,y,z)\,dxdydz = \iiint_{\Omega'} f(\rho\sin\theta\cos\varphi,\rho\sin\theta\sin\varphi,\rho\cos\theta)\,\rho^2\sin\theta\,d\rho d\theta d\varphi.
+                \]
+                Сферические координаты идеальны для областей, обладающих сферической симметрией (шар, шаровой слой, конус).</p>
+                <p><strong>Приложения двойных и тройных интегралов:</strong></p>
+                <ul>
+                    <li><strong>Геометрические:</strong> площадь плоской фигуры, объём тела, площадь поверхности (через поверхностный интеграл).</li>
+                    <li><strong>Физические:</strong> масса, центр масс, моменты инерции, гравитационный потенциал, заряд, поток жидкости, работа поля.</li>
+                </ul>
+            </div>
+            <div class="example">
+                <strong>🌐 Пример в сферических координатах:</strong> Объём шара радиуса \(R\):
+                \[
+                V = \iiint_{x^2+y^2+z^2\le R^2} dxdydz = \int_0^{2\pi}\int_0^{\pi}\int_0^R \rho^2\sin\theta\,d\rho d\theta d\varphi = 4\pi \cdot \frac{R^3}{3} = \frac{4}{3}\pi R^3.
+                \]
+                <strong>⚖️ Физическое приложение:</strong> Момент инерции однородного шара массы \(M\) относительно диаметра: \(I = \frac{2}{5}MR^2\) получается тройным интегрированием \(\rho^2\sin^2\theta \cdot \text{плотность}\).
+            </div>
+            <div class="comment">
+                Сферические координаты незаменимы при работе с кулоновскими потенциалами, волновыми функциями атома водорода, расчётах гравитационных полей. Множитель \(\rho^2\sin\theta\) отражает искажение объёма при переходе от декартовых координат.
+            </div>
+        </div>
+    </div>
+
+    <!-- БИЛЕТ 48 -->
+    <div class="ticket-card">
+        <div class="ticket-header">
+            <span class="ticket-number">Билет №48</span>
+            <div class="ticket-title">Элементы теории кривых. Гладкие, кусочно-гладкие кривые. Ориентация кривой. Параметрически заданные кривые. Кривые в декартовых и полярных координатах.</div>
+        </div>
+        <div class="ticket-content">
+            <div class="theory">
+                <p><strong>Кривая</strong> — образ непрерывного отображения \(\gamma: [a,b] \to \mathbb{R}^n\) (параметризация). Если \(\gamma\) непрерывно дифференцируема и \(\gamma'(t)\neq 0\) для всех \(t\), кривая называется <strong>гладкой</strong>. <strong>Кусочно-гладкая</strong> кривая состоит из конечного числа гладких дуг.</p>
+                <p><strong>Ориентация кривой</strong> — направление движения при возрастании параметра. Две параметризации задают одну ориентацию, если их производные имеют одинаковое направление. Смена ориентации меняет знак криволинейного интеграла второго рода.</p>
+                <p>Кривая может быть задана:</p>
+                <ul>
+                    <li><strong>Явно:</strong> \(y = y(x)\), \(x\in[a,b]\) (частный случай параметрической с \(x=t\)).</li>
+                    <li><strong>Параметрически:</strong> \(\begin{cases} x=x(t) \\ y=y(t) \end{cases},\; t\in[a,b]\).</li>
+                    <li><strong>В полярных координатах:</strong> \(\rho = \rho(\varphi)\), тогда параметризация: \(x=\rho(\varphi)\cos\varphi,\; y=\rho(\varphi)\sin\varphi\).</li>
+                </ul>
+            </div>
+            <div class="example">
+                <strong>🌀 Примеры:</strong> Окружность: \(\gamma(t)=(\cos t,\sin t),\; t\in[0,2\pi]\) — гладкая. Кардиоида: \(\rho = 1+\cos\varphi\) — кусочно-гладкая. Прямая: параметризация \((t,2t)\) задаёт ориентацию от \(-\infty\) к \(\infty\).<br>
+                <strong>📐 Ориентация:</strong> Для отрезка от \(A\) до \(B\) одна параметризация \((1-t)A+tB\) даёт ориентацию \(A\to B\), обратная — \(B\to A\).
+            </div>
+            <div class="comment">
+                Понятие ориентации критически важно при работе с криволинейными интегралами второго рода, так как они зависят от направления обхода. Гладкость гарантирует существование касательной и длины кривой.
+            </div>
+        </div>
+    </div>
+
+    <!-- БИЛЕТ 49 -->
+    <div class="ticket-card">
+        <div class="ticket-header">
+            <span class="ticket-number">Билет №49</span>
+            <div class="ticket-title">Криволинейный интеграл первого рода, его свойства, вычисление. Криволинейный интеграл второго рода, его свойства, вычисление.</div>
+        </div>
+        <div class="ticket-content">
+            <div class="theory">
+                <p><strong>Криволинейный интеграл первого рода (по длине дуги)</strong> определяется как предел интегральных сумм, где функция умножается на длину элемента дуги:
+                \[
+                \int\limits_{\gamma} f(x,y)\,ds = \lim_{\lambda\to0}\sum_{i=1}^n f(\xi_i,\eta_i)\,\Delta s_i.
+                \]
+                Для гладкой параметризации \(\gamma(t)=(x(t),y(t)),\; t\in[a,b]\):
+                \[
+                \int_{\gamma} f\,ds = \int_a^b f(x(t),y(t))\,\sqrt{(x'(t))^2+(y'(t))^2}\,dt.
+                \]
+                Свойства: линейность, аддитивность, независимость от ориентации (знак не меняется).</p>
+                <p><strong>Криволинейный интеграл второго рода (по координатам)</strong> имеет вид:
+                \[
+                \int_{\gamma} P(x,y)\,dx + Q(x,y)\,dy = \lim\sum \bigl(P(\xi_i,\eta_i)\Delta x_i + Q(\xi_i,\eta_i)\Delta y_i\bigr).
+                \]
+                Для параметризации:
+                \[
+                \int_{\gamma} Pdx+Qdy = \int_a^b \bigl(P(x(t),y(t))x'(t) + Q(x(t),y(t))y'(t)\bigr)dt.
+                \]
+                Интеграл второго рода меняет знак при изменении ориентации кривой.</p>
+            </div>
+            <div class="example">
+                <strong>📏 Пример I рода:</strong> Длина кривой: \(L=\int_{\gamma} ds\). Для винтовой линии \(\gamma(t)=(\cos t,\sin t,t),\; t\in[0,2\pi]\): \(\int_0^{2\pi}\sqrt{\sin^2 t+\cos^2 t+1}\,dt = 2\pi\sqrt{2}\).<br>
+                <strong>⚡ Пример II рода:</strong> Работа силы \(\mathbf{F}=(P,Q)\) вдоль кривой: \(\int_{\gamma} Pdx+Qdy\). Для \(\mathbf{F}=(y,x)\) по отрезку от \((0,0)\) до \((1,1)\): параметризация \((t,t)\), работа = \(\int_0^1 (t\cdot 1 + t\cdot 1)dt = 1\).
+            </div>
+            <div class="comment">
+                Интеграл I рода не зависит от ориентации и используется для вычисления массы, заряда кривой, её длины. Интеграл II рода зависит от направления и соответствует потоку или работе векторного поля вдоль кривой.
+            </div>
+        </div>
+    </div>
+
+    <!-- БИЛЕТ 50 -->
+    <div class="ticket-card">
+        <div class="ticket-header">
+            <span class="ticket-number">Билет №50</span>
+            <div class="ticket-title">Геометрические и физические приложения криволинейных интегралов. Формула Грина.</div>
+        </div>
+        <div class="ticket-content">
+            <div class="theory">
+                <p><strong>Приложения криволинейных интегралов:</strong></p>
+                <ul>
+                    <li><strong>Длина кривой:</strong> \(L = \int_{\gamma} ds\).</li>
+                    <li><strong>Масса кривой с линейной плотностью \(\rho\):</strong> \(m = \int_{\gamma} \rho\,ds\).</li>
+                    <li><strong>Работа силы \(\mathbf{F}=(P,Q)\):</strong> \(A = \int_{\gamma} Pdx+Qdy\).</li>
+                    <li><strong>Площадь плоской фигуры через интеграл второго рода:</strong> \(S = \frac12\oint_{\partial D} x\,dy - y\,dx\) (следствие формулы Грина).</li>
+                </ul>
+                <p><strong>Формула Грина</strong> связывает двойной интеграл по области \(D\) с криволинейным интегралом по её границе \(\partial D\) (ориентированной положительно, т.е. против часовой стрелки):
+                \[
+                \oint_{\partial D} P\,dx + Q\,dy = \iint_D \left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right) dxdy,
+                \]
+                при условии, что \(P,Q\) непрерывно дифференцируемы на \(D\cup\partial D\). Это аналог теоремы Стокса на плоскости.</p>
+            </div>
+            <div class="example">
+                <strong>📐 Приложение: площадь эллипса \(x=a\cos t, y=b\sin t\).</strong> По формуле Грина: \(S = \frac12\oint x dy - y dx = \frac12\int_0^{2\pi} (a\cos t\cdot b\cos t - b\sin t\cdot (-a\sin t))dt = \frac12\int_0^{2\pi} ab(\cos^2 t+\sin^2 t)dt = \pi ab\).<br>
+                <strong>🔁 Проверка формулы Грина:</strong> Для \(P=-y, Q=x\) имеем \(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}=2\), тогда \(\oint_{\partial D} -y dx + x dy = 2\iint_D d\sigma = 2S(D)\).
+            </div>
+            <div class="comment">
+                Формула Грина — двумерный вариант фундаментальной теоремы анализа, связывающей поведение функции на границе с её производными внутри области. Она широко применяется в физике (теорема о циркуляции, вычисление потоков) и в теории функций комплексного переменного.
+            </div>
+        </div>
+    </div>
+
+    <!-- БИЛЕТ 51 -->
+    <div class="ticket-card">
+        <div class="ticket-header">
+            <span class="ticket-number">Билет №51</span>
+            <div class="ticket-title">Элементы теории поверхностей. Гладкие, кусочно-гладкие поверхности. Ориентация поверхности. Поверхностный интеграл первого рода, его свойства.</div>
+        </div>
+        <div class="ticket-content">
+            <div class="theory">
+                <p><strong>Поверхность</strong> — образ непрерывного отображения \(\Phi: D\subset\mathbb{R}^2\to\mathbb{R}^3\) (параметризация). Поверхность <strong>гладкая</strong>, если \(\Phi\) непрерывно дифференцируема и векторы \(\Phi_u\), \(\Phi_v\) линейно независимы (нормаль не обращается в ноль). <strong>Кусочно-гладкая</strong> — объединение конечного числа гладких кусков.</p>
+                <p><strong>Ориентация поверхности</strong> — выбор непрерывного единичного вектора нормали \(\mathbf{n}\) (двусторонние поверхности). Например, для замкнутой поверхности выбирают внешнюю нормаль. Смена ориентации меняет знак поверхностного интеграла второго рода.</p>
+                <p><strong>Поверхностный интеграл первого рода</strong> (по площади поверхности):
+                \[
+                \iint\limits_{S} f(x,y,z)\,dS = \iint\limits_{D} f(\Phi(u,v))\,\|\Phi_u\times\Phi_v\|\,du\,dv,
+                \]
+                где \(\|\Phi_u\times\Phi_v\|\) — площадь элементарного параллелограмма. Свойства: линейность, аддитивность, независимость от ориентации. При \(f\equiv1\) даёт площадь поверхности.</p>
+            </div>
+            <div class="example">
+                <strong>🧊 Пример:</strong> Площадь сферы радиуса \(R\): параметризация \(\Phi(\theta,\varphi)=(R\sin\theta\cos\varphi,R\sin\theta\sin\varphi,R\cos\theta)\), \(\|\Phi_\theta\times\Phi_\varphi\| = R^2\sin\theta\). Интеграл \(\int_0^{2\pi}\int_0^\pi R^2\sin\theta\,d\theta d\varphi = 4\pi R^2\).<br>
+                <strong>⚖️ Физика:</strong> Масса поверхности с плотностью \(\rho\): \(m = \iint_S \rho\,dS\).
+            </div>
+            <div class="comment">
+                Поверхностный интеграл I рода обобщает двойной интеграл на искривлённые поверхности. Он не зависит от выбора параметризации (при условии согласованной ориентации) и используется для вычисления массы, заряда, момента инерции оболочек.
+            </div>
+        </div>
+    </div>
+
+    <!-- БИЛЕТ 52 -->
+    <div class="ticket-card">
+        <div class="ticket-header">
+            <span class="ticket-number">Билет №52</span>
+            <div class="ticket-title">Поверхностный интеграл второго рода, его свойства. Вычисление поверхностных интегралов в декартовых координатах.</div>
+        </div>
+        <div class="ticket-content">
+            <div class="theory">
+                <p><strong>Поверхностный интеграл второго рода</strong> (по координатам) возникает при рассмотрении потока векторного поля через поверхность. Для ориентированной поверхности \(S\) с нормалью \(\mathbf{n} = (\cos\alpha,\cos\beta,\cos\gamma)\):
+                \[
+                \iint_S \mathbf{F}\cdot\mathbf{n}\,dS = \iint_S P\,dy\,dz + Q\,dz\,dx + R\,dx\,dy,
+                \]
+                где \(P,Q,R\) — компоненты поля \(\mathbf{F}\). В координатной форме:
+                \[
+                \iint_S P\,dy\,dz = \iint_{D_{yz}} P(x(y,z),y,z)\,dy\,dz,\quad \text{и т.д.}
+                \]
+                Свойства: линейность, аддитивность, смена ориентации меняет знак интеграла.</p>
+                <p><strong>Вычисление в декартовых координатах.</strong> Если поверхность задана явно \(z = z(x,y)\) и выбрана нормаль с положительной \(z\)-компонентой (верхняя сторона), то
+                \[
+                \iint_S R\,dx\,dy = \iint_{D_{xy}} R(x,y,z(x,y))\,dx\,dy.
+                \]
+                Аналогично для проекций на \(xz\) и \(yz\). Общий поток вычисляется как сумма трёх проекционных интегралов.</p>
+            </div>
+            <div class="example">
+                <strong>💧 Пример:</strong> Поток поля \(\mathbf{F}=(0,0,z)\) через верхнюю сторону единичного квадрата \(z=0,\;0\le x,y\le 1\) равен \(\iint_{[0,1]^2} 0\,dxdy=0\). Через параболоид \(z=1-x^2-y^2\) (верх) поток \(R=z\): \(\iint_{x^2+y^2\le1} (1-x^2-y^2)dxdy = \frac{\pi}{2}\).<br>
+                <strong>🔄 Смена ориентации:</strong> Для нижней стороны \(z=z(x,y)\) интеграл \(\iint R\,dxdy\) берётся со знаком минус.
+            </div>
+            <div class="comment">
+                Поверхностный интеграл второго рода является естественным математическим аппаратом для описания потока жидкости, тепла, электрического поля. Важно правильно учитывать знак в зависимости от выбранной стороны поверхности.
+            </div>
+        </div>
+    </div>
+
+    <!-- БИЛЕТ 53 -->
+    <div class="ticket-card">
+        <div class="ticket-header">
+            <span class="ticket-number">Билет №53</span>
+            <div class="ticket-title">Геометрические и физические приложения поверхностных интегралов. Элементы теории векторных полей. Дивергенция и ротор. Циркуляция.</div>
+        </div>
+        <div class="ticket-content">
+            <div class="theory">
+                <p><strong>Приложения поверхностных интегралов:</strong></p>
+                <ul>
+                    <li><strong>Площадь поверхности:</strong> \(S = \iint_S dS\).</li>
+                    <li><strong>Масса оболочки:</strong> \(m = \iint_S \rho\,dS\).</li>
+                    <li><strong>Поток векторного поля:</strong> \(\Phi = \iint_S \mathbf{F}\cdot\mathbf{n}\,dS\) — количество жидкости, проходящей через \(S\) в единицу времени.</li>
+                    <li><strong>Заряд поверхности:</strong> \(Q = \iint_S \sigma\,dS\).</li>
+                </ul>
+                <p><strong>Векторное поле</strong> \(\mathbf{F}(x,y,z) = (P,Q,R)\).</p>
+                <ul>
+                    <li><strong>Дивергенция:</strong> \(\operatorname{div}\mathbf{F} = \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z}\) — мера источника/стока поля в точке.</li>
+                    <li><strong>Ротор (вихрь):</strong> \(\operatorname{rot}\mathbf{F} = \nabla\times\mathbf{F} = \left( \frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z},\; \frac{\partial P}{\partial z} - \frac{\partial R}{\partial x},\; \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right)\) — характеризует вращательную способность поля.</li>
+                    <li><strong>Циркуляция</strong> векторного поля по замкнутому контуру \(\gamma\): \(C = \oint_{\gamma} \mathbf{F}\cdot d\mathbf{r} = \oint_{\gamma} Pdx+Qdy+Rdz\).</li>
+                </ul>
+            </div>
+            <div class="example">
+                <strong>🌊 Пример потока:</strong> Поле \(\mathbf{F}=(x,y,z)\), сфера радиуса \(R\) с внешней нормалью: поток равен \(\iint_S \mathbf{F}\cdot\mathbf{n}\,dS = \iiint_{B_R} \operatorname{div}\mathbf{F}\,dV = \iiint 3\,dV = 4\pi R^3\).<br>
+                <strong>🌀 Ротор:</strong> \(\mathbf{F}=(-y,x,0)\), \(\operatorname{rot}\mathbf{F}=(0,0,2)\) — постоянная завихренность. Циркуляция по окружности: \(\oint \mathbf{F}\cdot d\mathbf{r} = 2\pi R^2\) (по формуле Грина-Стокса).
+            </div>
+            <div class="comment">
+                Дивергенция и ротор — ключевые дифференциальные операторы векторного анализа. Они появляются в фундаментальных теоремах (Остроградского-Гаусса и Стокса), связывающих интегралы по объёму/поверхности с интегралами по границе.
+            </div>
+        </div>
+    </div>
+
+    <!-- БИЛЕТ 54 -->
+    <div class="ticket-card">
+        <div class="ticket-header">
+            <span class="ticket-number">Билет №54</span>
+            <div class="ticket-title">Формула Остроградского-Гаусса. Формула Стокса.</div>
+        </div>
+        <div class="ticket-content">
+            <div class="theory">
+                <p><strong>Формула Остроградского-Гаусса</strong> (теорема о дивергенции) связывает поток векторного поля через замкнутую поверхность \(S\) (внешняя нормаль) с тройным интегралом от дивергенции по объёму \(\Omega\), ограниченному \(S\):
+                \[
+                \oiint_{S} \mathbf{F}\cdot\mathbf{n}\,dS = \iiint_{\Omega} \operatorname{div}\mathbf{F}\,dV,
+                \]
+                или в координатах:
+                \[
+                \oiint_{S} P\,dy\,dz + Q\,dz\,dx + R\,dx\,dy = \iiint_{\Omega} \left( \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z} \right) dxdydz.
+                \]
+                Она позволяет заменять поверхностный интеграл объёмным и наоборот.</p>
+                <p><strong>Формула Стокса</strong> обобщает формулу Грина на трёхмерные поверхности с краем. Для ориентированной поверхности \(S\) с краем \(\partial S\) (согласованная ориентация) и векторного поля \(\mathbf{F}\):
+                \[
+                \oint_{\partial S} \mathbf{F}\cdot d\mathbf{r} = \iint_{S} \operatorname{rot}\mathbf{F}\cdot\mathbf{n}\,dS.
+                \]
+                В координатной записи:
+                \[
+                \oint_{\partial S} Pdx+Qdy+Rdz = \iint_{S} \left( \frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z} \right) dy\,dz + \left( \frac{\partial P}{\partial z} - \frac{\partial R}{\partial x} \right) dz\,dx + \left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right) dx\,dy.
+                \]
+                Циркуляция поля по границе поверхности равна потоку ротора через поверхность.</p>
+            </div>
+            <div class="example">
+                <strong>🌍 Пример Остроградского-Гаусса:</strong> Вычислить поток \(\mathbf{F}=(x^3, y^3, z^3)\) через сферу \(x^2+y^2+z^2=R^2\). Дивергенция \(3(x^2+y^2+z^2)\). По формуле: \(\iiint_{B_R} 3\rho^2 \cdot \rho^2\sin\theta\,d\rho d\theta d\varphi = 3\cdot \frac{4\pi R^5}{5} = \frac{12\pi R^5}{5}\).<br>
+                <strong>🌀 Пример Стокса:</strong> Поле \(\mathbf{F}=(-y,x,0)\), поверхность — полусфера \(z=\sqrt{1-x^2-y^2}\) с краем — окружностью в плоскости \(xy\). Циркуляция по краю равна \(2\pi\) (площадь диска), что совпадает с потоком ротора \((0,0,2)\) через полусферу: \(2\cdot (\text{площадь проекции})=2\pi\).
+            </div>
+            <div class="comment">
+                Обе теоремы являются краеугольными камнями электродинамики (уравнения Максвелла), гидродинамики и теории поля. Формула Остроградского-Гаусса связывает источники поля с потоком, а формула Стокса — вихри с циркуляцией.
+            </div>
+        </div>
+    </div>
+</div>
+
+        </div>
+        
+    </div>
+    <footer>
+        📖 Билеты 1–20 полностью охватывают основы определённого интеграла, несобственные интегралы, числовые и функциональные ряды.<br>
+        Математический анализ — язык, на котором Вселенная описывает свои законы. Продолжайте исследовать!
+    </footer>
+</div>
+</body>
+</html>
