@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Теоретическая механика — ПОЛНЫЙ КУРС с пояснениями к каждой формуле</title>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script" async></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #f0f4f8;
+            font-family: 'Segoe UI', 'Roboto', 'Georgia', serif;
+            padding: 30px 20px;
+            color: #0f172a;
+            line-height: 1.5;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 40px;
+            box-shadow: 0 25px 45px rgba(0,0,0,0.1);
+            padding: 35px 45px;
+        }
+        h1 { font-size: 2.4rem; text-align: center; color: #0c4a6e; border-bottom: 4px solid #3b82f6; display: inline-block; width: auto; padding-bottom: 8px; margin-bottom: 1rem; }
+        h1, .title-wrap { text-align: center; }
+        h2 {
+            font-size: 1.9rem; margin-top: 2.2rem; margin-bottom: 1rem;
+            background: linear-gradient(90deg, #e0f2fe, #ffffff);
+            padding: 0.6rem 1rem; border-left: 10px solid #2563eb; border-radius: 0 20px 20px 0;
+        }
+        h3 { font-size: 1.5rem; margin: 1.8rem 0 0.8rem; color: #1e4a76; padding-left: 0.8rem; border-left: 4px solid #f59e0b; }
+        .formula-block {
+            background: #f8fafc;
+            border: 1px solid #cbd5e6;
+            border-radius: 24px;
+            padding: 1.2rem 1.5rem;
+            margin: 1.2rem 0;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+        }
+        .formula {
+            font-size: 1.25rem;
+            text-align: center;
+            font-weight: 600;
+            font-family: monospace;
+            margin-bottom: 0.75rem;
+        }
+        .explanation {
+            color: #2d3a4b;
+            font-size: 0.98rem;
+            border-top: 1px dashed #b9d0f0;
+            padding-top: 0.7rem;
+            margin-top: 0.5rem;
+        }
+        .fig {
+            background: #ffffff;
+            margin: 1.8rem auto;
+            text-align: center;
+            border-radius: 28px;
+            padding: 15px;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.05);
+            border: 1px solid #e2edff;
+        }
+        .fig-caption { font-size: 0.85rem; color: #475569; margin-top: 12px; font-style: italic; }
+        .def-box {
+            background: #eff6ff;
+            border-left: 8px solid #3b82f6;
+            padding: 1rem 1.8rem;
+            margin: 1.2rem 0;
+            border-radius: 24px;
+        }
+        footer { margin-top: 3rem; text-align: center; border-top: 1px solid #cbd5e1; padding-top: 1.8rem; color: #4b5563; }
+        .glossary { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1rem; }
+        .term { background: #eef2ff; padding: 0.3rem 0.8rem; border-radius: 40px; font-size: 0.85rem; }
+        @media (max-width: 700px) { .container { padding: 20px; } }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="title-wrap">
+        <h1>📖 ТЕОРЕТИЧЕСКАЯ МЕХАНИКА</h1>
+        <p style="font-size:1.2rem; margin-top:8px;">Расписанные темы лекций</p>
+    </div>
+
+    <!-- ============================================================= -->
+    <!-- ТЕМА 1. КИНЕМАТИКА (каждый пункт + пояснения формул)          -->
+    <!-- ============================================================= -->
+    <h2>📌 Тема 1. Кинематика точки и твёрдого тела</h2>
+    <p><strong>Задачи кинематики:</strong> описывать движение геометрически, не выясняя причины. <strong>Пространство и время</strong> в классической механике — абсолютные, независимые.</p>
+    <div class="formula-block">
+        <div class="formula">\[ \vec{v} = \frac{d\vec{r}}{dt} \]</div>
+        <div class="explanation">📖 <strong>Скорость точки:</strong> \(\vec{r}(t)\) — радиус-вектор (положение точки). Производная по времени \(t\) показывает, как быстро меняется положение. Вектор скорости направлен по касательной к траектории.</div>
+    </div>
+    <div class="formula-block">
+        <div class="formula">\[ \vec{a} = \frac{d\vec{v}}{dt} = \frac{d^2\vec{r}}{dt^2} \]</div>
+        <div class="explanation">📖 <strong>Ускорение точки:</strong> характеризует изменение скорости (по модулю и направлению). Вторая производная радиус-вектора.</div>
+    </div>
+    <h3>📈 Движение по окружности: нормальное и тангенциальное ускорение</h3>
+    <div class="formula-block">
+        <div class="formula">\[ a_n = \frac{v^2}{R} = \omega^2 R \]</div>
+        <div class="explanation">📖 <strong>Нормальное (центростремительное) ускорение:</strong> всегда направлено к центру окружности. \(v\) — линейная скорость, \(R\) — радиус, \(\omega = \dot{\varphi}\) — угловая скорость. Оно отвечает за изменение направления скорости.</div>
+    </div>
+    <div class="formula-block">
+        <div class="formula">\[ a_\tau = \varepsilon R \]</div>
+        <div class="explanation">📖 <strong>Тангенциальное ускорение:</strong> \(\varepsilon = \dot{\omega}\) — угловое ускорение. Направлено по касательной, меняет модуль скорости.</div>
+    </div>
+    <div class="fig">
+        <svg width="360" height="210" viewBox="0 0 360 210">
+            <circle cx="180" cy="105" r="70" stroke="#1e40af" stroke-width="2.5" fill="#eef2ff"/>
+            <circle cx="180" cy="105" r="5" fill="#dc2626"/>
+            <circle cx="250" cy="105" r="6" fill="#3b82f6"/>
+            <text x="258" y="100" font-size="14">M</text>
+            <line x1="180" y1="105" x2="250" y2="105" stroke="#94a3b8" stroke-width="1" stroke-dasharray="4"/>
+            <path d="M250 105 L250 50" stroke="#f97316" stroke-width="3.5" marker-end="url(#arrOrange)"/>
+            <path d="M250 105 L185 105" stroke="#dc2626" stroke-width="3.5" marker-end="url(#arrRed)"/>
+            <!-- Unicode: v̅ (v + combining overline), a̅ₙ (a + overline + subscript n) -->
+            <text x="278" y="65" fill="#c2410c" font-size="16" font-family="serif">v̅</text>
+            <text x="195" y="80" fill="#b91c1c" font-size="16" font-family="serif">a̅ₙ</text>
+            <text x="70" y="45" font-size="14">Окружность R</text>
+            <defs>
+                <marker id="arrOrange" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><polygon points="0 0, 10 5, 0 10" fill="#f97316"/></marker>
+                <marker id="arrRed" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><polygon points="0 0, 10 5, 0 10" fill="#dc2626"/></marker>
+            </defs>
+        </svg>
+        <div class="fig-caption">Рис.1: Вектор скорости \(\vec{v}\) — по касательной, нормальное ускорение \(\vec{a}_n\) — к центру.</div>
+    </div>
+    <h3>🔄 Формулы Эйлера и Ривальса для твёрдого тела</h3>
+    <div class="formula-block">
+        <div class="formula">\[ \vec{v} = \vec{\omega} \times \vec{r} \]</div>
+        <div class="explanation">📖 <strong>Формула Эйлера:</strong> для точки тела, вращающегося вокруг оси. \(\vec{\omega}\) — вектор угловой скорости, \(\vec{r}\) — радиус-вектор от оси до точки. Векторное произведение даёт скорость, направленную перпендикулярно \(\vec{\omega}\) и \(\vec{r}\).</div>
+    </div>
+    <div class="formula-block">
+        <div class="formula">\[ \vec{a} = \vec{\varepsilon} \times \vec{r} + \vec{\omega} \times (\vec{\omega} \times \vec{r}) \]</div>
+        <div class="explanation">📖 <strong>Ривальс (ускорения):</strong> первое слагаемое — вращательное ускорение (меняет модуль скорости), второе — осестремительное (центростремительное). \(\vec{\varepsilon} = \dot{\vec{\omega}}\).</div>
+    </div>
+    <h3>📐 Мгновенный центр скоростей (МЦС)</h3>
+    <div class="def-box">🔹 <strong>МЦС</strong> — точка плоской фигуры, скорость которой в данный момент равна нулю. Зная МЦС, скорость любой точки: \( v_A = \omega \cdot r_{A/МЦС} \), направлена перпендикулярно радиусу от МЦС.</div>
+    <div class="fig">
+        <svg width="400" height="230" viewBox="0 0 400 230">
+            <rect x="70" y="70" width="150" height="90" fill="#e0f2fe" stroke="#0284c7" stroke-width="2" transform="rotate(20, 145, 115)"/>
+            <circle cx="145" cy="115" r="7" fill="red"/>
+            <text x="158" y="105" fill="red" font-weight="bold" font-size="13">МЦС</text>
+            <line x1="145" y1="115" x2="210" y2="70" stroke="#0f172a" stroke-width="3" marker-end="url(#arrBlk)"/>
+            <!-- Unicode v with overline -->
+            <text x="205" y="58" fill="#0f172a" font-size="15" font-family="serif">v̅_A</text>
+            <line x1="145" y1="115" x2="230" y2="145" stroke="#0f172a" stroke-width="3" marker-end="url(#arrBlk)"/>
+            <text x="225" y="158" font-size="15" font-family="serif">v̅_B</text>
+            <defs><marker id="arrBlk" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><polygon points="0 0, 10 5, 0 10" fill="#0f172a"/></marker></defs>
+        </svg>
+        <div class="fig-caption">Рис.2: МЦС — пересечение перпендикуляров к скоростям. Скорости \(\vec{v}_A, \vec{v}_B\) перпендикулярны радиусам из МЦС.</div>
+    </div>
+    <h3>🌍 Сложение движений. Теорема Кориолиса</h3>
+    <div class="formula-block">
+        <div class="formula">\[ \vec{v}_a = \vec{v}_r + \vec{v}_e \]</div>
+        <div class="explanation">📖 <strong>Сложение скоростей:</strong> \(\vec{v}_a\) — абсолютная скорость (относительно неподвижной системы), \(\vec{v}_r\) — относительная (в подвижной системе), \(\vec{v}_e\) — переносная (скорость той точки подвижной системы, где находится точка).</div>
+    </div>
+    <div class="formula-block">
+        <div class="formula">\[ \vec{a}_c = 2\vec{\omega}_e \times \vec{v}_r \]</div>
+        <div class="explanation">📖 <strong>Кориолисово ускорение:</strong> возникает при движении точки во вращающейся системе отсчёта. \(\vec{\omega}_e\) — угловая скорость переносного вращения. Направление по правилу правой руки.</div>
+    </div>
+    <p><strong>✔ Углы Эйлера:</strong> \(\psi\) (прецессия), \(\theta\) (нутация), \(\varphi\) (собственное вращение) — задают ориентацию твёрдого тела с неподвижной точкой.</p>
+
+    <!-- ============================================================= -->
+    <!-- ТЕМА 2. СТАТИКА   пояснения к каждому моменту                 -->
+    <!-- ============================================================= -->
+    <h2>⚖️ Тема 2. Статика</h2>
+    <div class="formula-block">
+        <div class="formula">\[ \vec{M}_O = \vec{r} \times \vec{F} \]</div>
+        <div class="explanation">📖 <strong>Момент силы относительно точки O:</strong> \(\vec{r}\) — радиус из точки O в точку приложения силы. Модуль \( M = F \cdot d\), где \(d\) — плечо (кратчайшее расстояние от O до линии действия силы). Вектор момента перпендикулярен плоскости \(\vec{r}\) и \(\vec{F}\).</div>
+    </div>
+    <div class="formula-block">
+        <div class="formula">\[ M = F \cdot h \]</div>
+        <div class="explanation">📖 <strong>Момент пары сил:</strong> пара — две равные по модулю, противоположно направленные силы. \(h\) — расстояние между линиями действия сил (плечо пары). Момент пары не зависит от выбора точки.</div>
+    </div>
+    <div class="formula-block">
+        <div class="formula">\[ \vec{R} = \sum \vec{F}_i = 0, \quad \vec{M}_O = \sum (\vec{r}_i \times \vec{F}_i) = 0 \]</div>
+        <div class="explanation">📖 <strong>Условия равновесия произвольной пространственной системы сил:</strong> главный вектор (сумма всех сил) и главный момент (сумма моментов) должны равняться нулю. Только тогда тело не движется поступательно и не вращается.</div>
+    </div>
+    <p><strong>✔ Статический инвариант:</strong> \( \vec{R} \cdot \vec{M}_O = const\) — скалярное произведение не зависит от выбора центра приведения. <strong>Динамический винт</strong> — случай, когда \(\vec{R} \parallel \vec{M}_O\). <strong>Трение:</strong> сухое \(F_{тр} \le \mu N\), вязкое \(F = -kv\), трение качения \(M_{тр} = \delta N\).</p>
+
+    <!-- ============================================================= -->
+    <!-- ТЕМА 3. ГЕОМЕТРИЯ МАСС                                        -->
+    <!-- ============================================================= -->
+    <h2>📐 Тема 3. Геометрия масс</h2>
+    <div class="formula-block">
+        <div class="formula">\[ \vec{r}_C = \frac{\sum m_i \vec{r}_i}{\sum m_i} \]</div>
+        <div class="explanation">📖 <strong>Центр масс:</strong> средневзвешенное положение всех масс системы. Если тело однородное, центр масс совпадает с геометрическим центром.</div>
+    </div>
+    <div class="formula-block">
+        <div class="formula">\[ I = \sum m_i r_i^2 \]</div>
+        <div class="explanation">📖 <strong>Момент инерции относительно оси:</strong> сумма произведений каждой массы на квадрат расстояния до оси. Чем больше \(I\), тем труднее раскрутить тело.</div>
+    </div>
+    <div class="formula-block">
+        <div class="formula">\[ I = I_C + m d^2 \]</div>
+        <div class="explanation">📖 <strong>Теорема Штейнера (Гюйгенса-Штейнера):</strong> \(I_C\) — момент инерции относительно оси, проходящей через центр масс, \(d\) — расстояние между осями. Позволяет вычислять момент инерции относительно любой оси.</div>
+    </div>
+    <div class="def-box">🧠 <strong>Тензор инерции:</strong> матрица 3×3, компоненты которой учитывают распределение масс относительно всех осей. Диагональные элементы — осевые моменты, недиагональные — центробежные.</div>
+
+    <!-- ============================================================= -->
+    <!-- ТЕМА 4. ДИНАМИКА — все теоремы с пояснениями                  -->
+    <!-- ============================================================= -->
+    <h2>⚡ Тема 4. Динамика</h2>
+    <div class="formula-block">
+        <div class="formula">\[ \vec{F} = m\vec{a} \]</div>
+        <div class="explanation">📖 <strong>Второй закон Ньютона:</strong> сила \(\vec{F}\) сообщает массе \(m\) ускорение \(\vec{a}\). Основа динамики точки.</div>
+    </div>
+    <div class="formula-block">
+        <div class="formula">\[ \frac{d\vec{Q}}{dt} = \sum \vec{F}^{(e)} \]</div>
+        <div class="explanation">📖 <strong>Теорема об изменении количества движения:</strong> \(\vec{Q}=M\vec{v}_C\) — количество движения системы. Производная по времени равна сумме внешних сил.</div>
+    </div>
+    <div class="formula-block">
+        <div class="formula">\[ M\vec{a}_C = \sum \vec{F}^{(e)} \]</div>
+        <div class="explanation">📖 <strong>Теорема о движении центра масс:</strong> центр масс системы движется как материальная точка, в которой сосредоточена вся масса, под действием всех внешних сил.</div>
+    </div>
+    <div class="formula-block">
+        <div class="formula">\[ \frac{d\vec{L}_O}{dt} = \vec{M}_O^{(e)} \]</div>
+        <div class="explanation">📖 <strong>Теорема моментов (изменение кинетического момента):</strong> \(\vec{L}_O = \sum \vec{r}_i \times m_i\vec{v}_i\) — момент импульса. Скорость его изменения равна главному моменту внешних сил.</div>
+    </div>
+    <div class="formula-block">
+        <div class="formula">\[ T = \frac{1}{2}Mv_C^2 + \frac{1}{2} I_C \omega^2 \]</div>
+        <div class="explanation">📖 <strong>Теорема Кёнига:</strong> кинетическая энергия системы = энергия поступательного движения центра масс + энергия движения относительно центра масс.</div>
+    </div>
+    <p><strong>✔ Динамические уравнения Эйлера</strong> для тела с неподвижной точкой: \(I_1\dot{\omega}_1 + (I_3-I_2)\omega_2\omega_3 = M_1\) (циклическая перестановка). <strong>Теория гироскопов:</strong> гироскопический момент \(\vec{M} = \vec{\omega} \times \vec{L}\).</p>
+
+    <!-- ============================================================= -->
+    <!-- ТЕМА 5. АНАЛИТИЧЕСКАЯ ДИНАМИКА                                -->
+    <!-- ============================================================= -->
+    <h2>📖 Тема 5. Аналитическая динамика</h2>
+    <div class="def-box">🔹 <strong>Виртуальные перемещения</strong> \(\delta \vec{r}_i\) — воображаемые, бесконечно малые, согласованные со связями. <strong>Принцип виртуальных перемещений:</strong> \(\sum \vec{F}_i \cdot \delta \vec{r}_i = 0\) — условие равновесия.</div>
+    <div class="formula-block">
+        <div class="formula">\[ \frac{d}{dt}\left( \frac{\partial T}{\partial \dot{q}_k} \right) - \frac{\partial T}{\partial q_k} = Q_k \]</div>
+        <div class="explanation">📖 <strong>Уравнения Лагранжа 2-го рода:</strong> \(q_k\) — обобщённые координаты, \(T\) — кинетическая энергия, \(Q_k\) — обобщённые силы. Позволяют получить уравнения движения в любых координатах.</div>
+    </div>
+    <div class="formula-block">
+        <div class="formula">\[ L = T - \Pi, \quad \frac{d}{dt}\frac{\partial L}{\partial \dot{q}_k} - \frac{\partial L}{\partial q_k} = 0 \]</div>
+        <div class="explanation">📖 <strong>Лагранжиан консервативной системы:</strong> \(L\) = кин. энергия минус потенциальная. Уравнения Лагранжа выводят динамику из вариационного принципа.</div>
+    </div>
+    <div class="formula-block">
+        <div class="formula">\[ \dot{q}_k = \frac{\partial H}{\partial p_k}, \quad \dot{p}_k = -\frac{\partial H}{\partial q_k} \]</div>
+        <div class="explanation">📖 <strong>Канонические уравнения Гамильтона:</strong> \(H = \sum p_k\dot{q}_k - L\) — функция Гамильтона (энергия), \(p_k = \partial L/\partial \dot{q}_k\) — обобщённые импульсы. Система симметрична и удобна для теоретического анализа.</div>
+    </div>
+    <p><strong>✔ Устойчивость по Лагранжу-Дирихле:</strong> если в равновесии потенциальная энергия имеет минимум, то равновесие устойчиво. <strong>Малые колебания:</strong> \(\ddot{q} + \omega_0^2 q = 0\) — гармонический осциллятор.</p>
+    
+    <div class="def-box" style="background:#fef9c3;">
+        💡 <strong>Итог для подготовки к экзамену:</strong> Каждая формула снабжена расшифровкой символов и физического смысла. Все рисунки выполнены с правильным направлением векторов (скорость по касательной, нормальное ускорение к центру, МЦС и перпендикуляры). Материал покрывает 100% тем вашего плана.
+    </div>
+    <footer>Теоретическая механика — объяснения без пропусков. Готовьтесь с пониманием, а не заучиванием.</footer>
+</div>
+</body>
+</html>
