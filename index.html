@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Главная страница</title>
+  <meta name="description" content="">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(145deg, #f6f9fc 0%, #eef2f5 100%);
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', sans-serif;
+      line-height: 1.4;
+      color: #1a2c3e;
+      padding: 2rem 1.5rem;
+      min-height: 100vh;
+    }
+
+    /* контейнер с ограничением ширины */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      background: transparent;
+    }
+
+    /* заголовочная секция */
+    .hero {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #1f4e6e, #2c7a5e);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.75rem;
+      text-shadow: 0 2px 3px rgba(0,0,0,0.02);
+    }
+
+    .hero .sub {
+      font-size: 1.2rem;
+      color: #4a627a;
+      border-top: 2px solid rgba(44, 122, 94, 0.2);
+      display: inline-block;
+      padding-top: 0.6rem;
+      font-weight: 450;
+    }
+
+    /* сетка карточек (плашки-ссылки) */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0 2.5rem;
+    }
+
+    /* стиль плашки-ссылки */
+    .card-link {
+      display: block;
+      background: #ffffff;
+      border-radius: 1.75rem;
+      padding: 1.8rem 1.6rem 2rem 1.6rem;
+      text-decoration: none;
+      color: inherit;
+      box-shadow: 0 12px 24px -12px rgba(0, 32, 32, 0.12), 0 4px 8px -4px rgba(0, 0, 0, 0.02);
+      transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
+      border: 1px solid rgba(70, 130, 110, 0.1);
+      backdrop-filter: blur(0px);
+      will-change: transform;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* декоративный акцент сверху */
+    .card-link::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, #2c7a5e, #4aa88a, #2c7a5e);
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .card-link:hover::before {
+      opacity: 1;
+    }
+
+    .card-link:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 28px 32px -16px rgba(32, 70, 60, 0.2), 0 8px 12px -6px rgba(0, 0, 0, 0.05);
+      border-color: rgba(44, 122, 94, 0.3);
+      background: #ffffff;
+    }
+
+    /* заголовок карточки (название) */
+    .card-link h2 {
+      font-size: 1.8rem;
+      font-weight: 650;
+      margin-bottom: 1rem;
+      letter-spacing: -0.3px;
+      color: #1e3a3c;
+      transition: color 0.2s;
+      display: inline-block;
+      border-left: 4px solid #2c7a5e;
+      padding-left: 0.9rem;
+    }
+
+    .card-link:hover h2 {
+      color: #236b51;
+    }
+
+    /* описание */
+    .card-link p {
+      font-size: 1rem;
+      line-height: 1.45;
+      color: #3c5a6f;
+      margin-bottom: 1.5rem;
+      font-weight: 400;
+    }
+
+    /* визуальный индикатор "ссылка →" внизу плашки */
+    .card-footer {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #2c7a5e;
+      letter-spacing: -0.2px;
+      transition: gap 0.2s ease;
+    }
+
+    .card-footer span:first-child {
+      font-weight: 550;
+    }
+
+    .arrow-icon {
+      transition: transform 0.2s ease;
+      font-size: 1.1rem;
+    }
+
+    .card-link:hover .arrow-icon {
+      transform: translateX(5px);
+    }
+
+    .card-link:hover .card-footer {
+      gap: 0.7rem;
+      color: #1f5e48;
+    }
+
+    /* футер */
+    .footer-note {
+      text-align: center;
+      margin-top: 3.5rem;
+      padding-top: 1.8rem;
+      border-top: 1px solid rgba(0, 0, 0, 0.05);
+      font-size: 0.85rem;
+      color: #5e7e97;
+    }
+
+    .footer-note a {
+      color: #2c7a5e;
+      text-decoration: none;
+      border-bottom: 1px dotted #9bc4b2;
+    }
+
+    .footer-note a:hover {
+      color: #1a543f;
+      border-bottom-color: #1a543f;
+    }
+
+    /* адаптивность для мобильных */
+    @media (max-width: 680px) {
+      body {
+        padding: 1.2rem 1rem;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero .sub {
+        font-size: 1rem;
+      }
+
+      .cards-grid {
+        gap: 1.3rem;
+        grid-template-columns: 1fr;
+      }
+
+      .card-link {
+        padding: 1.4rem 1.4rem 1.6rem;
+      }
+
+      .card-link h2 {
+        font-size: 1.6rem;
+        padding-left: 0.7rem;
+      }
+    }
+
+    /* дополнительная доступность: фокус */
+    .card-link:focus-visible {
+      outline: 3px solid #2c7a5e;
+      outline-offset: 4px;
+      border-radius: 1.75rem;
+      transform: translateY(-2px);
+    }
+
+    /* для очень больших экранов не более 4 колонок */
+    @media (min-width: 1400px) {
+      .cards-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    /* небольшая анимация появления карточек */
+    @keyframes fadeUp {
+      0% {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .card-link {
+      animation: fadeUp 0.4s ease-out backwards;
+    }
+
+    /* задержки для элегантности (необязательно) */
+    .card-link:nth-child(1) { animation-delay: 0.05s; }
+    .card-link:nth-child(2) { animation-delay: 0.1s; }
+    .card-link:nth-child(3) { animation-delay: 0.15s; }
+    .card-link:nth-child(4) { animation-delay: 0.2s; }
+    .card-link:nth-child(5) { animation-delay: 0.25s; }
+    .card-link:nth-child(6) { animation-delay: 0.3s; }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="hero">
+    <h1>Навигация по сайту</h1>
+    <div class="sub">Главные разделы — быстрый доступ к информации</div>
+  </div>
+
+  <!-- Сетка с плашками-ссылками (каждая ведёт на отдельную страницу) -->
+  <div class="cards-grid">
+    
+    <!-- Матан прошлые года -->
+    <a href="calcus/calcus_last_year.html" class="card-link" title="Перейти на страницу «О компании»">
+      <h2>Матанализ. Билеты прошлых лет.</h2>
+      <p>Несобственные интегралы, ФМП, кратные интегралы, ряды. </p>
+      <div class="card-footer">
+        <span>Перейти к разделу</span>
+        <span class="arrow-icon">→</span>
+      </div>
+    </a>
+
+    <!-- Философия -->
+    <a href="philosophy/philosophy.html" class="card-link" title="Перейти на страницу «О компании»">
+      <h2>Философия. Билеты к экзамену.</h2>
+      <p>Всякий бред древних сумасшедших.</p>
+      <div class="card-footer">
+        <span>Перейти к разделу</span>
+        <span class="arrow-icon">→</span>
+      </div>
+    </a>
+
+
+    <!-- Теормех Расписанные темы лекций -->
+    <a href="teor_mechanic/teor_mechanic_last_year_lecture.html" class="card-link" title="Перейти на страницу «О компании»">
+      <h2>Теоретическая механика. Расписанные темы лекций.</h2>
+      <p>Кинематика, статика, геометрия масс, динамика, аналитическая динамика.</p>
+      <div class="card-footer">
+        <span>Перейти к разделу</span>
+        <span class="arrow-icon">→</span>
+      </div>
+    </a>
+
+
+  </div>
+</div>
+
+<!-- Небольшое примечание для разработчика (в консоль не влияет) — чтобы пользователь знал о замене ссылок -->
+</body>
+</html>
